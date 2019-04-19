@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        *{margin: 0;padding: 0;}
+    body{
+        background: #888;
+    }
+.list-locate{padding:12px;height:22px;color:#fff;line-height:22px;letter-spacing:0;overflow:hidden;font-size:16px;margin-top:12px;float:left;cursor:pointer;display:block;}
+.list-locate::after{background:url(images/down-white.png);top:26px;width:18px;height:18px;position:absolute;content:"";}
+.active.list-locate{color:#2196F3;padding-right:23px;box-shadow:0 0 6px 0 rgba(63,67,89,.15);background-color:#fff}
+.active.list-locate::after{top:26px;width:18px;height:18px;position:absolute;content:" ";background-image:url(images/up.png)}
+.d11-header{margin:0 auto;width:100%;height:80px;overflow:hidden;position:relative;min-width:1200px;max-width:1920px;transition:height .3s ease-in-out;-webkit-transform:translateZ(0);transform:translateZ(0)}
+.close.d11-header{height:0}
+.d11-header .header-box{background:url(images/d11-header.png) no-repeat 50%/cover;height:80px;display:block}
+.d11-header .close-btn{background:url(images/d11-close.png) no-repeat 50%;left:50%;top:5px;width:19.6px;height:19.7px;margin-left:580px;position:absolute;cursor:pointer}
+.locateCity{left:50%;top:58px;width:800px;height:407px;color:#5b5e7b;line-height:20px;letter-spacing:0;display:none;z-index:200;box-shadow:0 0 6px 0 rgba(63,67,89,.15);-webkit-transform:translateX(-50%);transform:translateX(-50%)}
+.locateCity{background:#fff;position:absolute}
+.locateCity .after{background:#fff;position:absolute}
+.locateCity .after{top:-5px;height:10px;content:""}
+.locateCity .index-list{padding:20px 30px;width:740px;height:21px;text-align:justify;letter-spacing:0;overflow:hidden;font-family:MicrosoftYaHei;font-size:16px;position:relative}
+.locateCity .index-list a{padding:0 8px;color:#8d91ac;line-height:21px;display:inline-block}
+.locateCity .index-list a:first-child{margin:0}
+.locateCity .index-list::before{background:#ececf2;left:20px;width:760px;height:1px;bottom:0;position:absolute;content:""}
+.locateCity .index-list::after{width:100%;height:21px;display:inline-block;content:""}
+.locateCity .locationBox{width:800px;height:407px;overflow:hidden;position:absolute}
+.locateCity .selectlist{margin:0 20px 21px;left:0;height:325px;right:-40px;position:absolute;overflow-x:hidden;overflow-y:scroll}
+.locateCity .selectlist .city .city-list li .key{width:32px;height:21px;text-align:center;color:#c6c8d6;letter-spacing:0;padding-top:24px;font-family:MicrosoftYaHei;font-size:16px;display:inline-block;position:absolute}
+.locateCity .selectlist .city .city-list li .cities{width:676px;padding-left:52px;display:inline-block}
+.locateCity .selectlist .city .city-list li .cities .brand-lists{padding-top:24px;padding-right:20px;display:inline-block}
+.locateCity .selectlist .city .city-list li .cities .brand-lists .carname{color:#8d91ac;letter-spacing:0;font-family:MicrosoftYaHei;font-size:16px;cursor:pointer}
+.locateCity .selectlist .city .city-list li .cities .brand-lists .located.carname{color:#2196F3}
+
+    </style>
+</head>
+<body>
+        <div class="list-locate " id="list-locate">全国 </div>
+        <div class="locateCity" style="display: none;">
+                <div class="after" style="width: 67px;"></div>
+                <div class="locationBox">
+                  <div class="index-list clearfix"><a class="index-item" href="javascript:;" data-id="热门">热门</a><a
+                      class="index-item" href="javascript:;" data-id="A">A</a><a class="index-item" href="javascript:;"
+                      data-id="B">B</a><a class="index-item" href="javascript:;" data-id="C">C</a><a class="index-item"
+                      href="javascript:;" data-id="D">D</a><a class="index-item" href="javascript:;" data-id="E">E</a><a
+                      class="index-item" href="javascript:;" data-id="F">F</a><a class="index-item" href="javascript:;"
+                      data-id="G">G</a><a class="index-item" href="javascript:;" data-id="H">H</a><a class="index-item"
+                      href="javascript:;" data-id="J">J</a><a class="index-item" href="javascript:;" data-id="K">K</a><a
+                      class="index-item" href="javascript:;" data-id="L">L</a><a class="index-item" href="javascript:;"
+                      data-id="M">M</a><a class="index-item" href="javascript:;" data-id="N">N</a><a class="index-item"
+                      href="javascript:;" data-id="P">P</a><a class="index-item" href="javascript:;" data-id="Q">Q</a><a
+                      class="index-item" href="javascript:;" data-id="R">R</a><a class="index-item" href="javascript:;"
+                      data-id="S">S</a><a class="index-item" href="javascript:;" data-id="T">T</a><a class="index-item"
+                      href="javascript:;" data-id="W">W</a><a class="index-item" href="javascript:;" data-id="X">X</a><a
+                      class="index-item" href="javascript:;" data-id="Y">Y</a><a class="index-item" href="javascript:;"
+                      data-id="Z">Z</a></div>
+                  <div class="selectlist" style="right: -40px;">
+                    <div class="city">
+                      <ul class="city-list">
+                        <li class="cityBox-热门"><span class="key">热门</span>
+                          <div class="cities" id="cities_0">
+                            <div class="brand-lists brand-frame" data-name="全国" data-id="0"><span class="carname ">全国</span></div>
+                            <div class="brand-lists brand-frame" data-name="北京" data-id="110100"><span class="carname ">北京</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="合肥" data-id="340100"><span class="carname ">合肥</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="广州" data-id="440100"><span class="carname ">广州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="深圳" data-id="440300"><span class="carname ">深圳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="重庆" data-id="500100"><span class="carname ">重庆</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-A"><span class="key">A</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="阿拉善盟" data-id="152900"><span
+                                class="carname">阿拉善盟</span></div>
+                            <div class="brand-lists brand-frame" data-name="鞍山" data-id="210300"><span class="carname">鞍山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="安庆" data-id="340800"><span class="carname">安庆</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="安阳" data-id="410500"><span class="carname">安阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="阿坝" data-id="513200"><span class="carname">阿坝</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="安顺" data-id="520400"><span class="carname">安顺</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="安康" data-id="610900"><span class="carname">安康</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="阿克苏" data-id="652900"><span class="carname">阿克苏</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="阿勒泰" data-id="654300"><span class="carname">阿勒泰</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="阿拉尔" data-id="659002"><span class="carname">阿拉尔</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-B"><span class="key">B</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="北京" data-id="110100"><span class="carname">北京</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="保定" data-id="130600"><span class="carname">保定</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="包头" data-id="150200"><span class="carname">包头</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="巴彦淖尔" data-id="150800"><span
+                                class="carname">巴彦淖尔</span></div>
+                            <div class="brand-lists brand-frame" data-name="本溪" data-id="210500"><span class="carname">本溪</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="白山" data-id="220600"><span class="carname">白山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="白城" data-id="220800"><span class="carname">白城</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="蚌埠" data-id="340300"><span class="carname">蚌埠</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="亳州" data-id="341600"><span class="carname">亳州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="滨州" data-id="371600"><span class="carname">滨州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="北海" data-id="450500"><span class="carname">北海</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="百色" data-id="451000"><span class="carname">百色</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="白沙" data-id="469025"><span class="carname">白沙</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="保亭" data-id="469029"><span class="carname">保亭</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="巴中" data-id="511900"><span class="carname">巴中</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="毕节" data-id="520500"><span class="carname">毕节</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="保山" data-id="530500"><span class="carname">保山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="宝鸡" data-id="610300"><span class="carname">宝鸡</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="白银" data-id="620400"><span class="carname">白银</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="博尔塔拉" data-id="652700"><span
+                                class="carname">博尔塔拉</span></div>
+                            <div class="brand-lists brand-frame" data-name="巴音郭楞" data-id="652800"><span
+                                class="carname">巴音郭楞</span></div>
+                            <div class="brand-lists brand-frame" data-name="北屯" data-id="659005"><span class="carname">北屯</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-C"><span class="key">C</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="承德" data-id="130800"><span class="carname">承德</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="沧州" data-id="130900"><span class="carname">沧州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="长治" data-id="140400"><span class="carname">长治</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="赤峰" data-id="150400"><span class="carname">赤峰</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="朝阳" data-id="211300"><span class="carname">朝阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="长春" data-id="220100"><span class="carname">长春</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="常州" data-id="320400"><span class="carname">常州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="滁州" data-id="341100"><span class="carname">滁州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="池州" data-id="341700"><span class="carname">池州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="长沙" data-id="430100"><span class="carname">长沙</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="常德" data-id="430700"><span class="carname">常德</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="郴州" data-id="431000"><span class="carname">郴州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="潮州" data-id="445100"><span class="carname">潮州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="崇左" data-id="451400"><span class="carname">崇左</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="澄迈" data-id="469023"><span class="carname">澄迈</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="昌江" data-id="469026"><span class="carname">昌江</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="重庆" data-id="500100"><span class="carname">重庆</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="成都" data-id="510100"><span class="carname">成都</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="楚雄" data-id="532300"><span class="carname">楚雄</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="昌吉" data-id="652300"><span class="carname">昌吉</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="嘉义" data-id="710700"><span class="carname">嘉义</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="彰化" data-id="712700"><span class="carname">彰化</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="嘉义" data-id="713000"><span class="carname">嘉义</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="路环岛" data-id="820300"><span class="carname">路环岛</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-D"><span class="key">D</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="大同" data-id="140200"><span class="carname">大同</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="大连" data-id="210200"><span class="carname">大连</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="丹东" data-id="210600"><span class="carname">丹东</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="大庆" data-id="230600"><span class="carname">大庆</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="大兴安岭" data-id="232700"><span
+                                class="carname">大兴安岭</span></div>
+                            <div class="brand-lists brand-frame" data-name="东营" data-id="370500"><span class="carname">东营</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="德州" data-id="371400"><span class="carname">德州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="东莞" data-id="441900"><span class="carname">东莞</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="儋州" data-id="460400"><span class="carname">儋州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="东方" data-id="469007"><span class="carname">东方</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="定安" data-id="469021"><span class="carname">定安</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="德阳" data-id="510600"><span class="carname">德阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="达州" data-id="511700"><span class="carname">达州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="大理" data-id="532900"><span class="carname">大理</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="德宏" data-id="533100"><span class="carname">德宏</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="迪庆" data-id="533400"><span class="carname">迪庆</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="定西" data-id="621100"><span class="carname">定西</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-E"><span class="key">E</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="鄂州" data-id="420700"><span class="carname">鄂州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="恩施" data-id="422800"><span class="carname">恩施</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-F"><span class="key">F</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="抚顺" data-id="210400"><span class="carname">抚顺</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="阜新" data-id="210900"><span class="carname">阜新</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="阜阳" data-id="341200"><span class="carname">阜阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="福州" data-id="350100"><span class="carname">福州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="抚州" data-id="361000"><span class="carname">抚州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="佛山" data-id="440600"><span class="carname">佛山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="防城港" data-id="450600"><span class="carname">防城港</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-G"><span class="key">G</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="赣州" data-id="360700"><span class="carname">赣州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="广州" data-id="440100"><span class="carname">广州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="桂林" data-id="450300"><span class="carname">桂林</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="贵港" data-id="450800"><span class="carname">贵港</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="广元" data-id="510800"><span class="carname">广元</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="广安" data-id="511600"><span class="carname">广安</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="甘孜" data-id="513300"><span class="carname">甘孜</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="贵阳" data-id="520100"><span class="carname">贵阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="甘南" data-id="623000"><span class="carname">甘南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="果洛" data-id="632600"><span class="carname">果洛</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="固原" data-id="640400"><span class="carname">固原</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-H"><span class="key">H</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="邯郸" data-id="130400"><span class="carname">邯郸</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="衡水" data-id="131100"><span class="carname">衡水</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="呼和浩特" data-id="150100"><span
+                                class="carname">呼和浩特</span></div>
+                            <div class="brand-lists brand-frame" data-name="呼伦贝尔" data-id="150700"><span
+                                class="carname">呼伦贝尔</span></div>
+                            <div class="brand-lists brand-frame" data-name="兴安盟" data-id="152200"><span class="carname">兴安盟</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="葫芦岛" data-id="211400"><span class="carname">葫芦岛</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="哈尔滨" data-id="230100"><span class="carname">哈尔滨</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="鹤岗" data-id="230400"><span class="carname">鹤岗</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="黑河" data-id="231100"><span class="carname">黑河</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="淮安" data-id="320800"><span class="carname">淮安</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="杭州" data-id="330100"><span class="carname">杭州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="湖州" data-id="330500"><span class="carname">湖州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="合肥" data-id="340100"><span class="carname">合肥</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="淮南" data-id="340400"><span class="carname">淮南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="淮北" data-id="340600"><span class="carname">淮北</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="黄山" data-id="341000"><span class="carname">黄山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="菏泽" data-id="371700"><span class="carname">菏泽</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="鹤壁" data-id="410600"><span class="carname">鹤壁</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="黄石" data-id="420200"><span class="carname">黄石</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="黄冈" data-id="421100"><span class="carname">黄冈</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="衡阳" data-id="430400"><span class="carname">衡阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="怀化" data-id="431200"><span class="carname">怀化</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="惠州" data-id="441300"><span class="carname">惠州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="河源" data-id="441600"><span class="carname">河源</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="贺州" data-id="451100"><span class="carname">贺州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="河池" data-id="451200"><span class="carname">河池</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="海口" data-id="460100"><span class="carname">海口</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="红河" data-id="532500"><span class="carname">红河</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="汉中" data-id="610700"><span class="carname">汉中</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="海东" data-id="630200"><span class="carname">海东</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="海北" data-id="632200"><span class="carname">海北</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="黄南" data-id="632300"><span class="carname">黄南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="海南" data-id="632500"><span class="carname">海南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="海西" data-id="632800"><span class="carname">海西</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="哈密" data-id="650500"><span class="carname">哈密</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="和田" data-id="653200"><span class="carname">和田</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="新竹" data-id="710600"><span class="carname">新竹</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="新竹" data-id="712400"><span class="carname">新竹</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="花莲" data-id="713500"><span class="carname">花莲</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="香港岛" data-id="810100"><span class="carname">香港岛</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-I"><span class="key">I</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="伊犁" data-id="654000"><span class="carname">伊犁</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-J"><span class="key">J</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="晋城" data-id="140500"><span class="carname">晋城</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="晋中" data-id="140700"><span class="carname">晋中</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="锦州" data-id="210700"><span class="carname">锦州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="吉林" data-id="220200"><span class="carname">吉林</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="鸡西" data-id="230300"><span class="carname">鸡西</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="佳木斯" data-id="230800"><span class="carname">佳木斯</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="嘉兴" data-id="330400"><span class="carname">嘉兴</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="金华" data-id="330700"><span class="carname">金华</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="景德镇" data-id="360200"><span class="carname">景德镇</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="九江" data-id="360400"><span class="carname">九江</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="吉安" data-id="360800"><span class="carname">吉安</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="济南" data-id="370100"><span class="carname">济南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="济宁" data-id="370800"><span class="carname">济宁</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="焦作" data-id="410800"><span class="carname">焦作</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="济源" data-id="419001"><span class="carname">济源</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="荆门" data-id="420800"><span class="carname">荆门</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="荆州" data-id="421000"><span class="carname">荆州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="江门" data-id="440700"><span class="carname">江门</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="揭阳" data-id="445200"><span class="carname">揭阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="嘉峪关" data-id="620200"><span class="carname">嘉峪关</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="金昌" data-id="620300"><span class="carname">金昌</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="酒泉" data-id="620900"><span class="carname">酒泉</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="金门" data-id="713700"><span class="carname">金门</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-K"><span class="key">K</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="开封" data-id="410200"><span class="carname">开封</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="昆明" data-id="530100"><span class="carname">昆明</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="克拉玛依" data-id="650200"><span
+                                class="carname">克拉玛依</span></div>
+                            <div class="brand-lists brand-frame" data-name="克孜勒苏" data-id="653000"><span
+                                class="carname">克孜勒苏</span></div>
+                            <div class="brand-lists brand-frame" data-name="喀什" data-id="653100"><span class="carname">喀什</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="可克达拉" data-id="659008"><span
+                                class="carname">可克达拉</span></div>
+                            <div class="brand-lists brand-frame" data-name="昆玉" data-id="659009"><span class="carname">昆玉</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="高雄" data-id="710200"><span class="carname">高雄</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="基隆" data-id="710300"><span class="carname">基隆</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="九龙" data-id="810200"><span class="carname">九龙</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-L"><span class="key">L</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="廊坊" data-id="131000"><span class="carname">廊坊</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="临汾" data-id="141000"><span class="carname">临汾</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="吕梁" data-id="141100"><span class="carname">吕梁</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="辽阳" data-id="211000"><span class="carname">辽阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="辽源" data-id="220400"><span class="carname">辽源</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="连云港" data-id="320700"><span class="carname">连云港</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="丽水" data-id="331100"><span class="carname">丽水</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="六安" data-id="341500"><span class="carname">六安</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="龙岩" data-id="350800"><span class="carname">龙岩</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="莱芜" data-id="371200"><span class="carname">莱芜</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="临沂" data-id="371300"><span class="carname">临沂</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="聊城" data-id="371500"><span class="carname">聊城</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="洛阳" data-id="410300"><span class="carname">洛阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="漯河" data-id="411100"><span class="carname">漯河</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="娄底" data-id="431300"><span class="carname">娄底</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="柳州" data-id="450200"><span class="carname">柳州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="来宾" data-id="451300"><span class="carname">来宾</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="临高" data-id="469024"><span class="carname">临高</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="乐东" data-id="469027"><span class="carname">乐东</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="陵水" data-id="469028"><span class="carname">陵水</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="泸州" data-id="510500"><span class="carname">泸州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="乐山" data-id="511100"><span class="carname">乐山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="凉山" data-id="513400"><span class="carname">凉山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="六盘水" data-id="520200"><span class="carname">六盘水</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="丽江" data-id="530700"><span class="carname">丽江</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="临沧" data-id="530900"><span class="carname">临沧</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="拉萨" data-id="540100"><span class="carname">拉萨</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="兰州" data-id="620100"><span class="carname">兰州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="陇南" data-id="621200"><span class="carname">陇南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="临夏" data-id="622900"><span class="carname">临夏</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="连江" data-id="713800"><span class="carname">连江</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-M"><span class="key">M</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="牡丹江" data-id="231000"><span class="carname">牡丹江</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="马鞍山" data-id="340500"><span class="carname">马鞍山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="茂名" data-id="440900"><span class="carname">茂名</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="梅州" data-id="441400"><span class="carname">梅州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="绵阳" data-id="510700"><span class="carname">绵阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="眉山" data-id="511400"><span class="carname">眉山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="苗栗" data-id="712500"><span class="carname">苗栗</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="澳门半岛" data-id="820100"><span
+                                class="carname">澳门半岛</span></div>
+                          </div>
+                        </li>
+                        <li class="cityBox-N"><span class="key">N</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="南京" data-id="320100"><span class="carname">南京</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="南通" data-id="320600"><span class="carname">南通</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="宁波" data-id="330200"><span class="carname">宁波</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="南平" data-id="350700"><span class="carname">南平</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="宁德" data-id="350900"><span class="carname">宁德</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="南昌" data-id="360100"><span class="carname">南昌</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="南阳" data-id="411300"><span class="carname">南阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="南宁" data-id="450100"><span class="carname">南宁</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="内江" data-id="511000"><span class="carname">内江</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="南充" data-id="511300"><span class="carname">南充</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="怒江" data-id="533300"><span class="carname">怒江</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="林芝" data-id="540400"><span class="carname">林芝</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="那曲" data-id="542400"><span class="carname">那曲</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="阿里" data-id="542500"><span class="carname">阿里</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="新北" data-id="710800"><span class="carname">新北</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="南投" data-id="712800"><span class="carname">南投</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="新界" data-id="810300"><span class="carname">新界</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-O"><span class="key">O</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="鄂尔多斯" data-id="150600"><span
+                                class="carname">鄂尔多斯</span></div>
+                          </div>
+                        </li>
+                        <li class="cityBox-P"><span class="key">P</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="盘锦" data-id="211100"><span class="carname">盘锦</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="莆田" data-id="350300"><span class="carname">莆田</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="萍乡" data-id="360300"><span class="carname">萍乡</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="平顶山" data-id="410400"><span class="carname">平顶山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="濮阳" data-id="410900"><span class="carname">濮阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="攀枝花" data-id="510400"><span class="carname">攀枝花</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="普洱" data-id="530800"><span class="carname">普洱</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="平凉" data-id="620800"><span class="carname">平凉</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="屏东" data-id="713300"><span class="carname">屏东</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="澎湖" data-id="713600"><span class="carname">澎湖</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-Q"><span class="key">Q</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="秦皇岛" data-id="130300"><span class="carname">秦皇岛</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="齐齐哈尔" data-id="230200"><span
+                                class="carname">齐齐哈尔</span></div>
+                            <div class="brand-lists brand-frame" data-name="七台河" data-id="230900"><span class="carname">七台河</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="衢州" data-id="330800"><span class="carname">衢州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="泉州" data-id="350500"><span class="carname">泉州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="青岛" data-id="370200"><span class="carname">青岛</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="潜江" data-id="429005"><span class="carname">潜江</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="清远" data-id="441800"><span class="carname">清远</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="钦州" data-id="450700"><span class="carname">钦州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="琼海" data-id="469002"><span class="carname">琼海</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="琼中" data-id="469030"><span class="carname">琼中</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="黔西南" data-id="522300"><span class="carname">黔西南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="黔东南" data-id="522600"><span class="carname">黔东南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="黔南" data-id="522700"><span class="carname">黔南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="曲靖" data-id="530300"><span class="carname">曲靖</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="昌都" data-id="540300"><span class="carname">昌都</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="庆阳" data-id="621000"><span class="carname">庆阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="塔城" data-id="654200"><span class="carname">塔城</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-R"><span class="key">R</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="日照" data-id="371100"><span class="carname">日照</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="日喀则" data-id="540200"><span class="carname">日喀则</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-S"><span class="key">S</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="石家庄" data-id="130100"><span class="carname">石家庄</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="朔州" data-id="140600"><span class="carname">朔州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="沈阳" data-id="210100"><span class="carname">沈阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="四平" data-id="220300"><span class="carname">四平</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="松原" data-id="220700"><span class="carname">松原</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="双鸭山" data-id="230500"><span class="carname">双鸭山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="绥化" data-id="231200"><span class="carname">绥化</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="上海" data-id="310100"><span class="carname">上海</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="苏州" data-id="320500"><span class="carname">苏州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="宿迁" data-id="321300"><span class="carname">宿迁</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="绍兴" data-id="330600"><span class="carname">绍兴</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="宿州" data-id="341300"><span class="carname">宿州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="三明" data-id="350400"><span class="carname">三明</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="上饶" data-id="361100"><span class="carname">上饶</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="三门峡" data-id="411200"><span class="carname">三门峡</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="商丘" data-id="411400"><span class="carname">商丘</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="十堰" data-id="420300"><span class="carname">十堰</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="随州" data-id="421300"><span class="carname">随州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="神农架" data-id="429021"><span class="carname">神农架</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="邵阳" data-id="430500"><span class="carname">邵阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="韶关" data-id="440200"><span class="carname">韶关</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="深圳" data-id="440300"><span class="carname">深圳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="汕头" data-id="440500"><span class="carname">汕头</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="汕尾" data-id="441500"><span class="carname">汕尾</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="三亚" data-id="460200"><span class="carname">三亚</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="三沙" data-id="460300"><span class="carname">三沙</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="遂宁" data-id="510900"><span class="carname">遂宁</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="山南" data-id="540500"><span class="carname">山南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="商洛" data-id="611000"><span class="carname">商洛</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="石嘴山" data-id="640200"><span class="carname">石嘴山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="石河子" data-id="659001"><span class="carname">石河子</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="双河" data-id="659007"><span class="carname">双河</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-T"><span class="key">T</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="天津" data-id="120100"><span class="carname">天津</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="唐山" data-id="130200"><span class="carname">唐山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="太原" data-id="140100"><span class="carname">太原</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="通辽" data-id="150500"><span class="carname">通辽</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="铁岭" data-id="211200"><span class="carname">铁岭</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="通化" data-id="220500"><span class="carname">通化</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="泰州" data-id="321200"><span class="carname">泰州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="台州" data-id="331000"><span class="carname">台州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="铜陵" data-id="340700"><span class="carname">铜陵</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="泰安" data-id="370900"><span class="carname">泰安</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="天门" data-id="429006"><span class="carname">天门</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="屯昌" data-id="469022"><span class="carname">屯昌</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="铜仁" data-id="520600"><span class="carname">铜仁</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="铜川" data-id="610200"><span class="carname">铜川</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="天水" data-id="620500"><span class="carname">天水</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="吐鲁番" data-id="650400"><span class="carname">吐鲁番</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="图木舒克" data-id="659003"><span
+                                class="carname">图木舒克</span></div>
+                            <div class="brand-lists brand-frame" data-name="铁门关" data-id="659006"><span class="carname">铁门关</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="台北" data-id="710100"><span class="carname">台北</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="台中" data-id="710400"><span class="carname">台中</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="台南" data-id="710500"><span class="carname">台南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="桃园" data-id="712300"><span class="carname">桃园</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="台东" data-id="713400"><span class="carname">台东</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="氹仔岛" data-id="820200"><span class="carname">氹仔岛</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-U"><span class="key">U</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="乌兰察布" data-id="150900"><span
+                                class="carname">乌兰察布</span></div>
+                            <div class="brand-lists brand-frame" data-name="乌鲁木齐" data-id="650100"><span
+                                class="carname">乌鲁木齐</span></div>
+                          </div>
+                        </li>
+                        <li class="cityBox-W"><span class="key">W</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="乌海" data-id="150300"><span class="carname">乌海</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="无锡" data-id="320200"><span class="carname">无锡</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="温州" data-id="330300"><span class="carname">温州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="芜湖" data-id="340200"><span class="carname">芜湖</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="潍坊" data-id="370700"><span class="carname">潍坊</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="威海" data-id="371000"><span class="carname">威海</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="武汉" data-id="420100"><span class="carname">武汉</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="梧州" data-id="450400"><span class="carname">梧州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="五指山" data-id="469001"><span class="carname">五指山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="文昌" data-id="469005"><span class="carname">文昌</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="万宁" data-id="469006"><span class="carname">万宁</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="文山" data-id="532600"><span class="carname">文山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="渭南" data-id="610500"><span class="carname">渭南</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="武威" data-id="620600"><span class="carname">武威</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="吴忠" data-id="640300"><span class="carname">吴忠</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="五家渠" data-id="659004"><span class="carname">五家渠</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-X"><span class="key">X</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="邢台" data-id="130500"><span class="carname">邢台</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="忻州" data-id="140900"><span class="carname">忻州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="锡林郭勒盟" data-id="152500"><span
+                                class="carname">锡林郭勒盟</span></div>
+                            <div class="brand-lists brand-frame" data-name="徐州" data-id="320300"><span class="carname">徐州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="宣城" data-id="341800"><span class="carname">宣城</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="厦门" data-id="350200"><span class="carname">厦门</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="新余" data-id="360500"><span class="carname">新余</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="新乡" data-id="410700"><span class="carname">新乡</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="许昌" data-id="411000"><span class="carname">许昌</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="信阳" data-id="411500"><span class="carname">信阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="襄阳" data-id="420600"><span class="carname">襄阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="孝感" data-id="420900"><span class="carname">孝感</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="咸宁" data-id="421200"><span class="carname">咸宁</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="仙桃" data-id="429004"><span class="carname">仙桃</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="湘潭" data-id="430300"><span class="carname">湘潭</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="湘西" data-id="433100"><span class="carname">湘西</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="西双版纳" data-id="532800"><span
+                                class="carname">西双版纳</span></div>
+                            <div class="brand-lists brand-frame" data-name="西安" data-id="610100"><span class="carname">西安</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="咸阳" data-id="610400"><span class="carname">咸阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="西宁" data-id="630100"><span class="carname">西宁</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-Y"><span class="key">Y</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="阳泉" data-id="140300"><span class="carname">阳泉</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="运城" data-id="140800"><span class="carname">运城</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="营口" data-id="210800"><span class="carname">营口</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="延边" data-id="222400"><span class="carname">延边</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="伊春" data-id="230700"><span class="carname">伊春</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="盐城" data-id="320900"><span class="carname">盐城</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="扬州" data-id="321000"><span class="carname">扬州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="鹰潭" data-id="360600"><span class="carname">鹰潭</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="宜春" data-id="360900"><span class="carname">宜春</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="烟台" data-id="370600"><span class="carname">烟台</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="宜昌" data-id="420500"><span class="carname">宜昌</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="岳阳" data-id="430600"><span class="carname">岳阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="益阳" data-id="430900"><span class="carname">益阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="永州" data-id="431100"><span class="carname">永州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="阳江" data-id="441700"><span class="carname">阳江</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="云浮" data-id="445300"><span class="carname">云浮</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="玉林" data-id="450900"><span class="carname">玉林</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="宜宾" data-id="511500"><span class="carname">宜宾</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="雅安" data-id="511800"><span class="carname">雅安</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="玉溪" data-id="530400"><span class="carname">玉溪</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="延安" data-id="610600"><span class="carname">延安</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="榆林" data-id="610800"><span class="carname">榆林</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="玉树" data-id="632700"><span class="carname">玉树</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="银川" data-id="640100"><span class="carname">银川</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="宜兰" data-id="712200"><span class="carname">宜兰</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="云林" data-id="712900"><span class="carname">云林</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li class="cityBox-Z"><span class="key">Z</span>
+                          <div class="cities">
+                            <div class="brand-lists brand-frame" data-name="张家口" data-id="130700"><span class="carname">张家口</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="镇江" data-id="321100"><span class="carname">镇江</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="舟山" data-id="330900"><span class="carname">舟山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="舟山新区" data-id="331200"><span
+                                class="carname">舟山新区</span></div>
+                            <div class="brand-lists brand-frame" data-name="漳州" data-id="350600"><span class="carname">漳州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="淄博" data-id="370300"><span class="carname">淄博</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="枣庄" data-id="370400"><span class="carname">枣庄</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="郑州" data-id="410100"><span class="carname">郑州</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="周口" data-id="411600"><span class="carname">周口</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="驻马店" data-id="411700"><span class="carname">驻马店</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="株洲" data-id="430200"><span class="carname">株洲</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="张家界" data-id="430800"><span class="carname">张家界</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="珠海" data-id="440400"><span class="carname">珠海</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="湛江" data-id="440800"><span class="carname">湛江</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="肇庆" data-id="441200"><span class="carname">肇庆</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="中山" data-id="442000"><span class="carname">中山</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="自贡" data-id="510300"><span class="carname">自贡</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="资阳" data-id="512000"><span class="carname">资阳</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="遵义" data-id="520300"><span class="carname">遵义</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="昭通" data-id="530600"><span class="carname">昭通</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="张掖" data-id="620700"><span class="carname">张掖</span>
+                            </div>
+                            <div class="brand-lists brand-frame" data-name="中卫" data-id="640500"><span class="carname">中卫</span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+        </div>
+
+        <script src="js/jquery-1.8.3.min.js"></script>
+
+        <script type="text/javascript" src="js/jquery.cookie.js"></script>
+
+        <script type="text/javascript">
+        var city_name = "全国";
+        if ($.cookie('sys_p_name') != '' && $.cookie('sys_p_name') != '全国') {
+            city_name = $.cookie('sys_p_name');
+        }
+        $(function () {
+            $('#list-locate').html(city_name);
+            $('#list-locate').click(function () {
+            $('#list-locate').addClass("active");
+            $('.locateCity').show()
+            });
+            $('.index-item').click(function () {
+            var city_char = $(this).text();
+            bx = $(".cityBox-A").offset();
+            xx = $(".cityBox-" + city_char).offset();
+            console.log(city_char + xx.top + bx.top);
+            $('.selectlist').scrollTop(xx.top - 100 - bx.top)
+            });
+            $('.brand-lists').click(function () {
+            var p_index = $(this).attr("data-id");
+            console.log("data-id:" + p_index);
+            locate_skip(p_index)
+            });
+            var s = $('#list-locate');
+            $("html").on("click", function (e) {
+            $(e.target).is(s) || $(e.target).is($(".locationBox")) || $(e.target).closest(".locationBox").length >
+                0 || ($(".locateCity").hide(), s.removeClass("active"))
+            });
+            baidu_getcity()
+        });
+    
+        function baidu_getcity() {
+            $.ajax({
+            type: "get",
+            url: "http://api.map.baidu.com/location/ip?ak=64nu7xTVEdpVLgrfaur6sAu0&coor=bd09ll",
+            dataType: "jsonp",
+            jsonpCallback: "cb",
+            success: function () {}
+            })
+        }
+    
+        function cb(data) {
+            if (data.status == 0) {
+            var address = data.address.split("|");
+            if (address.length > 2) {
+                var city = address[2];
+                if (city != '' && city != 'None') {
+                var lists = $('.brand-lists');
+                for (var i = 0; i < lists.length; i++) {
+                    var dataid = $(lists[i]).attr("data-id");
+                    var dataname = $(lists[i]).attr("data-name");
+                    if (dataname == city) {
+                    var div_html = '<div class="brand-lists brand-frame" data-name="' + dataname + '" data-id="' +
+                        dataid + '" onclick="locate_skip(' + dataid + ');" ><span class="carname "><font color="red">定位：' +
+                        dataname + '</font></span></div>';
+                    $('#cities_0').prepend(div_html);
+                    break
+                    }
+                }
+                console.log(city)
+                } else {
+                console.log('定位失败')
+                }
+            }
+            } else {
+            console.log('定位失败,status:' + data.status)
+            }
+        }
+    
+        function locate_skip(p_index) {
+            $.ajax({
+            type: "get",
+            url: "/cs/changeCity.shtml?p_index=" + p_index,
+            dataType: "json",
+            success: function (data) {
+                city_name = data.sys_p_name;
+                $('#list-locate').html(city_name);
+                $('#list-locate').removeClass("active");
+                $('.locateCity').hide();
+            }
+            });
+        }
+        </script>    
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+/* ------导航栏---------- */
+.nav_box {
+	width: 100%;
+	position: fixed;
+	z-index: 10;
+}
+
+.top_menu {
+	background: #333;
+	width: 100%;
+	height: 4.5em;
+}
+
+img {
+	max-width: 100%;
+	border: none;
+}
+
+.nav_menu {
+	font-size: 30px !important;
+	float: right;
+	margin: 10px 10px 0 10px;
+	color: #fff;
+	cursor: pointer;
+	text-align: center;
+}
+
+.guodu {
+	opacity: 1 !important;
+	height: 508px !important;
+}
+
+.box {
+	position: relative;
+	margin: 0;
+	transition: all 1s;
+	opacity: 0;
+	height: 0;
+	overflow: hidden;
+	font-size: 16px;
+}
+
+.bar {
+	width: 100%;
+	text-align: center;
+}
+
+.bar span {
+	display: block;
+	background-color: #08c;
+	color: #fff;
+	height: 40px;
+	line-height: 40px;
+}
+
+.bar span#on{
+	background: lightsteelblue;
+}
+
+.bar ul {
+	display: none;
+	position: relative;
+	top: 0;
+	background: #29a7e6;
+}
+
+.bar ul li {
+	height: 35px;
+	line-height: 35px;
+}
+
+.box li:active {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.nav_search {
+	font-size: 30px !important;
+	color: #fff;
+	margin: 10px 10px 0 10px;
+	float: right;
+	cursor: pointer;
+	text-align: center;
+}
+
+.sousuo {
+	float: right;
+	background: #333;
+	border-radius: 10px;
+}
+
+.sousuo form input {
+	width: 0;
+	line-height: 30px;
+	font-size: 20px;
+	margin: 10px;
+	border-radius: 2px;
+	float: right;
+	border: none;
+	transition: all 0.5s;
+	opacity: 0;
+}
+
+.wid {
+	background: #fff;
+	width: 88% !important;
+	opacity: 1 !important;
+}
+    </style>
+</head>
+<body>
+        <div class="nav_box">
+                <div class="top_menu">
+                    <a href="http://www.gay78.com/wap/"><span style="color: #ddd;margin-left: 1rem;font-size: 18px;float: left;margin-top: 0.7em">欢乐棋牌</span></a>
+                    <a class="nav_menu fa fa-bars" id="show" style="display: block;"></a>
+                    <a class="nav_search fa fa-search" id="change" style="display: block;"></a>
+                    <div class="sousuo" style="display: block;">
+                        <form method="get" action="/wap/so.php">
+                            <input id="search" name="s" size="11" placeholder="本站搜索..." type="text">
+                        </form>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+                <div class="box" id="show_nav">
+                    <ul class="ul1">
+                        <li class="bar">
+                            <a href="http://www.gay78.com/wap/"><span id="on"><i class="fa fa-home">&nbsp;首页</i></span></a>
+                        </li>
+                                            <!--可编缉区域-->
+                        <li class="bar"><a href="/wap/glmj/"><span>
+                            攻略秘籍</span></a>
+                        </li>
+                        <!--可编缉区域End-->
+                                            <!--可编缉区域-->
+                        <li class="bar"><a href="/wap/xwzx/"><span>
+                            新闻资讯</span></a>
+                        </li>
+                        <!--可编缉区域End-->
+                                            <!--可编缉区域-->
+                        <li class="bar"><a href="/wap/qwpc/"><span>
+                            权威评测</span></a>
+                        </li>
+                        <!--可编缉区域End-->
+                                            <!--可编缉区域-->
+                        <li class="bar"><a href="/wap/yxsp/"><span>
+                            游戏视频</span></a>
+                        </li>
+                        <!--可编缉区域End-->
+                                            <!--可编缉区域-->
+                        <li class="bar"><a href="/wap/ztbg/"><span>
+                            杂谈八卦</span></a>
+                        </li>
+                        <!--可编缉区域End-->
+                                            <!--可编缉区域-->
+                        <li class="bar"><a href="/wap/zbqt/"><span>
+                            周边.其它</span></a>
+                        </li>
+                        <!--可编缉区域End-->
+                                            <li class="bar">
+                            <span>排行榜&nbsp;<i class="	fa fa-angle-down"></i></span>
+                            <ul style="display: block;">
+                                <li><a href="/wap/new/">最新发布</a></li>
+                                <li><a href="/wap/top/">精彩推荐</a></li>
+                                <li><a href="/wap/hot/">热门排行</a></li>
+                            </ul>
+                        </li>
+                        <div style="clear: both;"></div>
+                    </ul>
+                </div>
+        </div>
+
+        <script>
+                $(".bar").click(function() {
+                    if ($(this).children("ul").css("display") == "block") {
+                        $(this).children("ul").slideUp(300);
+                    } else {
+                        $(this).children("ul").slideDown(300);
+                    }
+                });
+            </script>
+            <script>
+                    var i = true;
+                    $('#show').click(function() {
+                        if (!i) {
+                            $('#show_nav').removeClass('guodu')
+                            i = true
+                        } else {
+                            $('#show_nav').addClass('guodu')
+                            i = false
+            
+                        }
+                    })
+                </script>
+                <script>
+                        var i = true;
+                        $('#change').click(function() {
+                            if (!i) {
+                                $('#search').removeClass('wid')
+                                i = true
+                            } else {
+                                $('#search').addClass('wid')
+                                i = false
+                
+                            }
+                        })
+                    </script>
+</body>
+</html>

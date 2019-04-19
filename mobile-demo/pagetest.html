@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-1.7.2.min.js"></script>
+    <script src="./js/test.js"></script>
+
+<style>
+.pagination{     width: 100%; line-height: 2em; text-align: center; margin: 1em auto; display: inline-block; font-size: 1.2em;}
+.pagination a{display:inline-block;padding:0 1em;color:#333;border:1px solid #c5c5c5;margin:.1em .5em;text-decoration: none;}
+.pagination span{display:inline-block;padding:0 1em;color:#333;border:1px solid #c5c5c5;margin:.1em .5em;}
+/* .pagination .current{color:#FFF;background:#5badff;}
+.pagination a:hover{color:#FFF;background:#5badff;} */
+
+</style>
+</head>
+<body>
+        <div class="pagination">
+                <div class="page-list" id="page">
+                    <div id="pagez" style="margin-top:10px">
+                        当前页：2/6  <br>
+                        <a href="/wap/xwzx/">首页</a>
+                        <a href="/wap/xwzx/">上一页</a>
+                        <a href="/wap/xwzx/">1</a>
+                        <span style="color:red;font-weight:bold;">2</span>
+                        <a href="/wap/xwzx/3.html">3</a>
+                        <a href="/wap/xwzx/4.html">4</a>
+                        <a href="/wap/xwzx/5.html">5</a>
+                        <a href="/wap/xwzx/6.html">6</a>
+                        <a href="/wap/xwzx/3.html">下一页</a>
+                        <a href="/wap/xwzx/6.html">尾页</a>
+                    </div>
+                </div>
+            </div>
+
+<script>
+    var parent=document.getElementById("#page");
+    var child=document.getElementById("#pagez");
+    child.appendChild('<br>')
+// $(document).ready(function(){
+  
+//     $("#page").before("<br>");
+
+
+
+// });
+</script>
+ 
+</body>
+</html>

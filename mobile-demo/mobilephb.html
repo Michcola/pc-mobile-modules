@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    /* MYMINIPHB */
+    .miniphb {
+            position: relative;
+            z-index: 2;
+            float: right;
+            text-align: right;
+            font-size: 16px;
+        }
+
+        .miniphb .phbul {
+            display: inline-block;
+        }
+
+        .miniphb .phbul li {
+            display: inline-block;
+            line-height: 1;
+            margin-left: 16px;
+        }
+
+        .miniphb .phbul li a {
+            font-size: 13px;
+            color: #777;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .miniphb .phbul li a:hover {
+            color: #333;
+        }
+
+
+ /* MYPHB */
+ .phb {
+            display: inline-block;
+            position: relative;
+        }
+
+        .pubdown {
+            padding: 4px 13px 5px 13px;
+            background-color: white;
+            color: #fff;
+            line-height: 21px;
+            font-size: 11px;
+        }
+
+        .pubdown .more {
+            color: #111;
+            font-size: 11px;
+            line-height: 21px;
+        }
+
+        .phblist {
+            position: absolute;
+            z-index: 2;
+            right: 0;
+            background-color: white;
+            padding: 6px 0;
+            text-align: left;
+            margin: 4px 0 0;
+            min-width: 113px;
+            color: #fff;
+            font-size: 11px;
+            line-height: 21px;
+        }
+
+        .phblist li {
+            list-style: none;
+            color: #fff;
+        }
+
+        .phblist li a {
+            padding: 0 13px;
+            font-size: 10px;
+            line-height: 24px;
+            width: 100%;
+            color: #111;
+            text-transform: none;
+            text-decoration: none;
+            list-style: none;
+            text-align: left;
+        }
+
+        .phblist li a:hover {
+            color: aquamarine;
+        }
+        /* 下角 三角*/
+        a.sanjiao {
+            width: 0.2rem;
+            display: block;
+            height: 0.2rem;
+
+            border-left: 0.04rem solid #111;
+
+            border-bottom: 0.04rem solid #111;
+
+            margin: 0.3rem 0 0.3rem 0.32rem;
+
+            transform: rotate(-225deg);
+            -webkit-transform: rotate(-225deg);
+
+
+            overflow: hidden;
+
+            transform-origin: center center;
+            position: absolute;
+    right: 4px;
+    top: 9px;
+        }
+
+
+</style>
+<body>
+    
+
+    <!-- css  phb -->
+    <STYle>
+            .phblist {
+                display: none;
+                right: -60px;
+            }
+    
+            .pubdown:hover .phblist {
+                display: inline-block;
+            }
+    
+    </STYle>
+
+        <!-- myphbmini -->
+        <div class="miniphb">
+            <ul class="phbul">
+                    <?php foreach ($ran_url as $k => $v){ ?>
+                        <!--可编缉区域-->
+                        <li class="phbli"> <a href="/<?=$mpath?>/<?=$ran_url[$k]?>/"><?=$ran_name[$k]?></a></li>
+                        <!--可编缉区域End-->
+                    <?php } ?>
+            </ul>
+        </div>
+
+
+
+        <!-- phb -->
+        <?php foreach ($ran_url as $k => $v){ ?>
+            <!--可编缉区域-->
+            <a href="/<?=$mpath?>/<?=$ran_url[$k]?>/"><?=$ran_name[$k]?></a>
+            <!--可编缉区域End-->
+        <?php } ?>
+            
+        <!-- MYPHB -->
+        <div class="phb">
+            <div class="pubdown" onclick="myFunction()">
+                <div class="more">排行榜
+                    <!-- 三角 -->
+                    <a href="" id="sanjiao" class="sanjiao" style="color:white">a </a></div>
+                <ul class="phblist" id="myphb">
+                    <li><a href="">热门</a></li>
+                    <li><a href="">推荐</a></li>
+                    <li><a href="">最新</a></li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myphb");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "block";
+                }
+                var y= document.getElementById("sanjiao");
+                if (y.style.transform === "rotate(-45deg)") {
+                    y.style.transform = "rotate(-225deg)";
+                } else{
+                    y.style.transform = "rotate(-45deg)";
+                }
+            }
+        </script>
+
+
+</body>
+</html>

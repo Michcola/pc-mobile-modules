@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        /* MYPHB */
+        .phb {
+            display: inline-block;
+            position: relative;
+        }
+
+        .pubdown {
+            padding: 4px 13px 5px 13px;
+            background-color: #222222;
+            color: #fff;
+            line-height: 21px;
+            font-size: 11px;
+        }
+
+        .pubdown .more {
+            color: #fff;
+            font-size: 11px;
+            line-height: 21px;
+        }
+
+        .phblist {
+            position: absolute;
+            z-index: 2;
+            right: 0;
+            background-color: #222222;
+            padding: 6px 0;
+            text-align: left;
+            margin: 4px 0 0;
+            min-width: 113px;
+            color: #fff;
+            font-size: 11px;
+            line-height: 21px;
+        }
+
+        .phblist li {
+            list-style: none;
+            color: #fff;
+        }
+
+        .phblist li a {
+            padding: 0 13px;
+            font-size: 10px;
+            line-height: 24px;
+            width: 100%;
+            color: #fff;
+            text-transform: none;
+            text-decoration: none;
+            list-style: none;
+            text-align: left;
+        }
+
+        .phblist li a:hover {
+            color: aquamarine;
+        }
+
+        /* MYMINIPHB */
+        .miniphb {
+            position: relative;
+            z-index: 2;
+            float: right;
+            text-align: right;
+            font-size: 14px;
+        }
+
+        .miniphb .phbul {
+            display: inline-block;
+        }
+
+        .miniphb .phbul li {
+            display: inline-block;
+            line-height: 1;
+            margin-left: 30px;
+        }
+
+        .miniphb .phbul li a {
+            font-size: 13px;
+            color: #777;
+            line-height: 1;
+            text-decoration: none;
+        }
+
+        .miniphb .phbul li a:hover {
+            color: #333;
+        }
+
+        /* 下角 三角*/
+        a.sanjiao {
+            width: 0.2rem;
+            display: block;
+            height: 0.2rem;
+
+            border-left: 0.04rem solid #111;
+
+            border-bottom: 0.04rem solid #111;
+
+            margin: 0.3rem 0 0.3rem 0.32rem;
+
+            transform: rotate(-225deg);
+            -webkit-transform: rotate(-225deg);
+
+
+            overflow: hidden;
+
+            transform-origin: center center;
+            position: absolute;
+    right: 4px;
+    top: 9px;
+        }
+
+        a.sanjiao:hover {
+            width: 0.2rem;
+            display: block;
+            height: 0.2rem;
+
+            border-left: 0.04rem solid #111;
+
+            border-bottom: 0.04rem solid #111;
+
+            margin: 0.3rem 0 0.3rem 0.32rem;
+
+            transform: rotate(-45deg);
+
+            -webkit-transform: rotate(-45deg);
+
+            overflow: hidden;
+
+            transform-origin: center center;
+            position: absolute;
+    right: 4px;
+    top: 9px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 三角 -->
+    <a href="sanjiao" class="sanjiao">a </a>
+    <!-- MYPHB -->
+    <div class="phb">
+        <div class="pubdown" onclick="myFunction()">
+            <div class="more">排行榜
+                <!-- 三角 -->
+                <a href="sanjiao" class="sanjiao" style="color:white">a </a></div>
+            <ul class="phblist" id="myphb">
+                <li><a href="">热门</a></li>
+                <li><a href="">推荐</a></li>
+                <li><a href="">最新</a></li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myphb");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        }
+    </script>
+    <!-- css hover phb -->
+    <STYle>
+        .asda {
+            display: inline-block;
+            border: 10px solid transparent;
+            border-top-color: black;
+
+        }
+
+        .phblist {
+            display: none;
+        }
+
+        .pubdown:hover .phblist {
+            display: inline-block;
+        }
+
+        .pubdown:hover .sanjiao {
+            transform: rotate(-45deg);
+        }
+    </STYle>
+    <div class="phb">
+        <div class="pubdown">
+            <div class="more">排行榜
+                <!-- 三角 -->
+                <a href="sanjiao" class="sanjiao" style="color:red">a </a></div>
+            <ul class="phblist" id="myphb">
+                <li><a href="">Xx</a></li>
+                <li><a href="">x</a></li>
+                <li><a href="">xx</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- end csshover -->
+
+    <!-- myphbmini -->
+    <div class="miniphb">
+        <ul class="phbul">
+            <li class="phbli">
+                <a href="/new/">最新发布</a>
+            </li>
+            <li class="phbli">
+                <a href="/top/">精彩推荐</a>
+            </li>
+            <li class="phbli">
+                <a href="/hot/">热门排行</a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

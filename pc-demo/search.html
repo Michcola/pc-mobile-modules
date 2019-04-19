@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+/*搜索框  */
+.searchBox {
+    height: 38px;
+    float: right;
+    margin: 5px 0;
+}
+.searchbarNew {
+    border: 1px solid #ddd;
+    border-right: 0;
+    height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+    width: 160px;
+    padding-left: 10px;
+    float: left;
+    color: #666;
+    font-family: "Microsoft yahei";
+}
+.btnSearch {
+    width: 50px;
+    height: 40px;
+    overflow: hidden;
+    border: 0;
+    float: left;
+    background-color: #0090C5;
+}
+.btnSearch:active{
+    background-color: #525633;
+}
+
+</style>
+<body>
+        <!-- search -->
+        <div class="searchBox" >
+    <form action="/so.php" method="GET">
+        <input name="catId" value="10" type="hidden">
+        <input class="searchbarNew" name="s" onFocus="if(this.value=='资讯...'){this.value='';}"
+            onBlur="if(this.value==''){this.value='资讯...';}" value="资讯..." type="text">
+        <input class="btnSearch" value="搜索" type="submit">
+    </form>
+</div>
+    
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+
+   /* MYPHB */
+   .phb {
+            display: inline-block;
+            position: relative;
+            width: 88px;
+            height:76px;
+        }
+        .phb:hover{
+            background: #1e2c43;
+    border-bottom: 2px solid #ff7800;
+    width: 88px;
+    height: 74px;
+    color: #ff7800;
+        }
+
+        .pubdown {
+            width: 88px;
+            height:76px;    
+            color: #fff;
+             display: block;
+        }
+
+        .pubdown .more {
+            color: white;
+            font-size: 16px;
+            line-height: 34px;
+            left: 24px;
+    position: absolute;
+        }
+
+
+        .phblist {
+            position: absolute;
+            top:72px;
+            display: none;
+            z-index: 2;
+            right: 0;
+            background-color: #24344e;
+            padding: 6px 0;
+            text-align: left;
+            margin: 4px 0 0;
+            min-width: 113px;
+            color: #fff;
+            font-size: 16px;
+            line-height: 21px;
+        }
+
+        .phblist li {
+            list-style: none;
+            color: #fff;
+        }
+
+        .phblist li a {
+            padding: 0 13px;
+            font-size: 16px;
+            line-height: 24px;
+            margin: 5px auto;
+            width: 100%;
+            color: #fff;
+            text-transform: none;
+            text-decoration: none;
+            list-style: none;
+            text-align: left;
+        }
+        .phblist li a:hover {
+    background: #1e2c43;
+    border-bottom: 2px solid #ff7800;
+    width: 88px;
+    /* height: 74px; */
+    display: block;
+    color: #ff7800;
+}
+
+
+        /* 下角 三角*/
+        a.sanjiao {
+            width: 10px;
+    display: block;
+    height: 10px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+
+            /* margin: 0.3rem 0 0.3rem 0.32rem; */
+
+            transform: rotate(-225deg);
+            -webkit-transform: rotate(-225deg);
+
+            overflow: hidden;
+
+            transform-origin: center center;
+            position: absolute;
+            right: -15px;
+            top: 31px;
+        }
+
+        a.sanjiao:hover {
+            width: 10px;
+    display: block;
+    height: 10px;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+
+            /* margin: 0.3rem 0 0.3rem 0.32rem; */
+
+            transform: rotate(-45deg);
+
+            -webkit-transform: rotate(-45deg);
+
+            overflow: hidden;
+
+            transform-origin: center center;
+            position: absolute;
+            right: -15px;
+            top: 31px;
+        }
+
+
+</style>
+<body>
+    <!-- css hover phb -->
+<STYle>
+
+        .phblist {
+        display: none;
+        }
+        
+        .pubdown:hover .phblist {
+        display: inline-block;
+        }
+        
+        .pubdown:hover .sanjiao {
+        transform: rotate(-45deg);
+        }
+        </STYle>
+        
+        <!-- phb -->
+        <div class="phb">
+        <div class="pubdown">
+        <div class="more">排行榜
+            <!-- 三角 -->
+            <a href="sanjiao" class="sanjiao" style="color:red">a </a>
+        </div>
+        <ul class="phblist" id="myphb">
+            <li><a href="">最最新</a></li>
+            <li><a href="">x排行</a></li>
+            <li><a href="">xx推荐排行</a></li>
+        </ul>
+        </div>
+        </div>
+</body>
+</html>

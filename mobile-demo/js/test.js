@@ -1,0 +1,1 @@
+document.getElementById("page").classList.add("mystyle");

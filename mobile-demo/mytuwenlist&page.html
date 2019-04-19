@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    /*---------首页文章列表上面头条--------*/
+.toutiao {
+  width: 100%;
+  background-color: #fff;
+}
+
+.toutiao li {
+  list-style-type: none;
+  width: 100%;
+  float: left;
+  border-bottom: 1px solid #eee;
+  display: block;
+  background-color: #fff;
+  padding: 0px;
+}
+
+.toutiao img {
+  width: 30%;
+  height: 80px;
+  float: left;
+  cursor: pointer;
+  transition: all 0.6s;
+  vertical-align: middle;
+  padding-top: 11px;
+}
+
+.toutiao img:hover {
+  transform: scale(1.1);
+}
+
+.toutiao span {
+  font-size: 14px;
+  overflow: hidden;
+  vertical-align: middle;
+  padding: 8px 0px 8px 5px;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #111;
+  font-weight: bolder;
+}
+
+.toutiao span :hover {
+  text-decoration: underline;
+  color: #de3636;
+}
+
+.toutiao p {
+  font-size: 12px;
+  padding-right: 10px;
+  text-indent: 1em;
+  height: 46px;
+  overflow: hidden;
+  padding-left: 10px;
+  color: #111;
+
+}
+
+.toutiao .times {
+  font-size: 12px;
+  float: right;
+  padding: 0px 8px 6px 0px;
+  color: #111;
+
+}
+
+.thickdiv {
+  background: none repeat scroll 0 0 #000000;
+  border: 0 none;
+  height: 100%;
+  left: 0;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  filter: alpha(opacity=50);
+}
+
+/* ---------页码----------------- */
+
+.pagination {
+  text-align: center;
+  font-size: 12px;
+}
+
+.page-list a.on,
+.pagination a:hover {
+  color: #fff;
+  background: #338A9C;
+  border: 1px solid transparent;
+
+}
+
+.page-list a,
+.page-list span {
+  position: relative;
+  margin-right: 10px;
+  float: inherit;
+  padding: 0;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  border-radius: 2px;
+
+  text-decoration: none;
+}
+
+.page-list span {
+  border: 1px solid transparent;
+  font-size: 14px;
+}
+
+
+    </style>
+</head>
+<body>
+  
+    <!-- 文章列表 -->
+
+
+
+    <div class="toutiao">
+
+        [e:loop={"select id,title,smalltext,newstime,lid,titlepic from [!db.pre!]ecms_article where did=$did and
+        lid=$lid and titlepic!='' order by isgood desc,onclick desc limit $startCount,$perNumber",0,24,0}]
+        <!--可编缉区域-->
+        <li><a href="/<?=$mpath?>/<?=$ipath?>/<?=$bqr['id']?>.html"><img src="<?=$bqr['titlepic']?>">
+                <span><?=$bqr['title']?></span>
+                <p><?=$bqr['smalltext']?></p>
+                <span class="times"><?=date("Y-m-d",$bqr['newstime'])?></span>
+            </a>
+        </li>
+        <!--可编缉区域End-->
+        [/e:loop]
+
+    </div>
+
+
+                <!-- 页码 -->
+                <div class="pagination">
+                    <div class="page-list">
+                        <div style="margin-top:10px">
+                            <?=zq_page($totalPage,$page,$sub_pages, '/'.$mpath.'/'.$subPage_link. '/')?>
+                        </div>
+                    </div>
+                </div>
+
+
+
+    <!-- 列表end -->
+
+
+
+
+</body>
+</html>

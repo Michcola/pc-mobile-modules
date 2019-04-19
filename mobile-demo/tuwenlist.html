@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+*{
+    margin:0;
+    padding:0;
+}
+
+.newsindex_news_tab span,.nav_top span{float:left;width:33.3%;height:42px;line-height:42px;color:#444;font-size:16px;position:relative;cursor:pointer;}
+.newsindex_news_tab span::before,.nav_top span::before{position:absolute;content:'';width:1px;height:20px;top:11px;right:0px;background-color:#e5e5e5;}
+.newsindex_news_tab span:last-child::before,.nav_top span:last-child::before{display:none;}
+.newsindex_news_tab span::after,.nav_top span::after{position:absolute;content:'';width:100%;height:1px;bottom:0px;left:0px;background-color:#FFF;}
+.newsindex_news_tab span.active,.nav_top span.active{color:#ff4416;}
+.newsindex_news_tab span.active::after,.nav_top span.active::after{background-color:#ff4416;}
+.newsindex_news_con{width:100%;height:auto;overflow:hidden;padding-top:6px;text-align:left;}
+.newsindex_news_list{width:100%;height:auto;overflow:hidden;margin:0 auto;display:none;}
+.newsindex_news_list:first-child{display:block;}
+.newsindex_news_list ul{width:95%;height:auto;margin:0 auto;overflow:hidden;}
+.newsindex_news_list ul li{width:100%;height:80px;overflow:hidden;padding-top:12px;padding-bottom:12px;border-bottom:1px solid #eeeeee;position:relative;}
+.newsindex_news_list ul li:last-child{border:0px;}
+.newsindex_news_img{width:136px;height:80px;position:absolute;left:0;top:12px;overflow:hidden;}
+.newsindex_news_img img{display:block;width:100%;height:100%;}
+.newsindex_news_info{margin-left:145px;height:auto;overflow:hidden;float:left;}
+.newsindex_news_title{width:100%;height:54px;line-height:18px;overflow:hidden;font-size:16px;}
+.newsindex_news_title a{color:#444444;}
+.newsindex_news_des{width:100%;height:16px;overflow:hidden;margin-top:10px;}
+.newsindex_news_des em{font-size: 16px;float:left;color:#c7c7c7;}
+.newsindex_news_des span{color:#c2c2c2;margin-left:6px;}
+.newsindex_news_link{width:150px;height:36px;border:1px solid #e6e6e6;color:#555555;border-radius:36px;display:block;margin:25px auto 0 auto;text-align:center;line-height:36px;font-size:14px;}
+
+    </style>
+</head>
+<body>
+        <div class="newsindex_news" id="news_c">
+                <div class="newsindex_news_tab">
+                        <span class="active">资讯</span>
+                        <span class="">专栏</span>
+                        <span class="">评测</span>
+                </div>
+                <div class="newsindex_news_con">
+                        <div class="newsindex_news_list" style="display: block;">
+                                  <ul>
+                                        <li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420917.html"><img src="http://imgs.ali213.net/news/2019/04/12/2019041222307788.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！</a></a><a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！</a></a></a></a><a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！</a></a><a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！<a href="/news/html/420917.html">Epic老大：不会加入Steam式社区论坛和集换式卡牌！Epic老大：不会加入Steam式社区论坛和集换式卡牌！</a></a></a></a></a></a></a></a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420993.html"><img src="http://imgs.ali213.net/news/2019/04/12/2019041221453876.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420993.html">黑洞版权事件后 国内三大图片供应商网站全军覆没</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/421007.html"><img src="http://imgs.ali213.net/news/2019/04/12/2019041220323183.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/421007.html">夭寿了卢浮宫地面大塌陷！纪念玻璃金字塔30周年</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li class="zadmainholder zadmainholder-lable" zpro-data-type="24"><div style="width: 100%;"><ins style="width:0px;height:0px;"></ins><iframe width="375" frameborder="0" height="80" scrolling="no" src="http://pos.baidu.com/s?hei=80&amp;wid=375&amp;di=u3471409&amp;ltu=http%3A%2F%2F3g.ali213.net%2F&amp;psi=3c3e09361d6fe63b777378bbb8620511&amp;ps=0x0&amp;par=375x812&amp;col=zh-CN&amp;drs=3&amp;cce=true&amp;cec=UTF-8&amp;ari=2&amp;ccd=24&amp;cfv=0&amp;chi=3&amp;cmi=0&amp;dai=1&amp;psr=375x812&amp;dri=0&amp;pcs=375x812&amp;pis=-1x-1&amp;cpl=0&amp;pss=375x6784&amp;ant=0&amp;cja=false&amp;cdo=0&amp;exps=111000,110011&amp;dtm=HTML_POST&amp;dis=0&amp;tlm=1555051774&amp;dc=3&amp;ltr=https%3A%2F%2Fwww.google.com%2F&amp;tcn=1555051774&amp;ti=%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E9%97%A8%E6%88%B7_%E6%B8%B8%E4%BE%A0%E7%BD%91_%E6%B8%B8%E4%BE%A0%E7%BD%91&amp;tpr=1555051774276"></iframe></div><script type="text/javascript" src="//e.fengyx.com/gbtxckxhj.js"></script></li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/421003.html"><img src="http://imgs.ali213.net/news/2019/04/12/2019041214359792.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/421003.html">英国玩家再造《只狼》速通世界记录 29分钟成功通关</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420983.html"><img src="http://imgs.ali213.net/news/2019/04/12/2019041212823628.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420983.html">《碧蓝航线CrossWave》官网更新内容 详细模式介绍!</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/421001.html"><img src="http://imgs.ali213.net/news/2019/04/12/2019041214405814.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/421001.html">《APEX英雄》自瞄故意打偏迷惑反作弊 官方考虑锁区</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420995.html"><img src="http://imgs.ali213.net/news/2019/04/12/201904121344863.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420995.html">《Jump大乱斗》欧尔麦特截图 玩家请愿更多漫画角色</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/364859.html"><img src="http://imgs.ali213.net/news/2018/09/04/2018090425731343.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/364859.html">未来的奥斯卡影帝影后？好莱坞打拼的十位00后童星</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li class="zadmainholder zadmainholder-lable" zpro-data-type="25"><div id="_1jlo3swikqs" style=""><ins style="width:0px;height:0px;"></ins><iframe width="375" frameborder="0" height="80" scrolling="no" src="http://pos.baidu.com/s?hei=80&amp;wid=375&amp;di=u3471409&amp;ltu=http%3A%2F%2F3g.ali213.net%2F&amp;psi=3c3e09361d6fe63b777378bbb8620511&amp;col=zh-CN&amp;dri=1&amp;dis=0&amp;pcs=375x812&amp;exps=111000,110011&amp;ti=%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E9%97%A8%E6%88%B7_%E6%B8%B8%E4%BE%A0%E7%BD%91_%E6%B8%B8%E4%BE%A0%E7%BD%91&amp;chi=3&amp;pis=-1x-1&amp;ps=0x0&amp;cpl=0&amp;tpr=1555051774276&amp;cja=false&amp;cdo=0&amp;drs=3&amp;cfv=0&amp;ltr=https%3A%2F%2Fwww.google.com%2F&amp;ccd=24&amp;pss=375x6784&amp;psr=375x812&amp;dc=3&amp;dai=2&amp;cce=true&amp;tcn=1555051774&amp;dtm=HTML_POST&amp;par=375x812&amp;cec=UTF-8&amp;cmi=0&amp;ari=2&amp;tlm=1555051774&amp;ant=0"></iframe></div><script type="text/javascript" src="//e.fengyx.com/gbtxckxhj.js"></script></li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420999.html"><img src="http://imgs.ali213.net/news/2019/04/12/2019041213029932.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420999.html">希腊艺术家钟表打造迷你蒸汽朋克世界 你也想拥有</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420989.html"><img src="http://imgs.ali213.net/news/2019/04/12/2019041211332882.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420989.html">《哥斯拉2》曝新预告片 萌胖大战三头怪场面激情四射</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420981.html"><img src="http://imgs.ali213.net/news/2019/04/12/201904121095755.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420981.html">机车在手世界我有 《往日不再》开放世界探索预告</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420987.html"><img src="http://imgs.ali213.net/news/2019/04/12/20190412124914112.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420987.html">苍井空将亚洲同步直播分娩全过程 还有普通话翻译</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420915.html"><img src="http://imgs.ali213.net/news/2019/04/12/20190412113213502.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420915.html">《古墓：暗影》究极福利mod 25+劳拉套装无限清凉！</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li class="zadmainholder zadmainholder-lable" zpro-data-type="26"><div id="_itvhh7q1g6o" style=""><div style="padding:0px;"><iframe width="375" frameborder="0" height="80" scrolling="no" src="http://pos.baidu.com/s?hei=80&amp;wid=375&amp;di=u3471409&amp;ltu=http%3A%2F%2F3g.ali213.net%2F&amp;psi=3c3e09361d6fe63b777378bbb8620511&amp;ant=0&amp;cce=true&amp;ccd=24&amp;dai=3&amp;tpr=1555051774276&amp;ti=%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E9%97%A8%E6%88%B7_%E6%B8%B8%E4%BE%A0%E7%BD%91_%E6%B8%B8%E4%BE%A0%E7%BD%91&amp;ari=2&amp;exps=111000,110011&amp;cja=false&amp;ltr=https%3A%2F%2Fwww.google.com%2F&amp;cfv=0&amp;dc=3&amp;par=375x812&amp;dri=2&amp;drs=3&amp;cec=UTF-8&amp;pss=375x6784&amp;cdo=0&amp;psr=375x812&amp;cmi=0&amp;pis=-1x-1&amp;dtm=HTML_POST&amp;tlm=1555051774&amp;chi=3&amp;cpl=0&amp;ps=0x0&amp;dis=0&amp;tcn=1555051774&amp;pcs=375x812&amp;col=zh-CN"></iframe></div></div><script type="text/javascript" src="//e.fengyx.com/gbtxckxhj.js"></script></li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420957.html"><img src="http://imgs.ali213.net/news/2019/04/12/20190412115808788.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420957.html">粉丝自制《尼尔》动画短片 90年代的2B小姐姐与A2！</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420985.html"><img src="http://imgs.ali213.net/news/2019/04/12/20190412115806150.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420985.html">你这个COS就非常的有灵魂 囧图 来一个大佬的坐姿</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li>                                     </ul>
+                                  <a class="newsindex_news_link" href="/news/">点击查看更多</a>
+                        </div>
+                        <div class="newsindex_news_list" style="display: none;">
+                                  <ul>
+                                        <li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420985.html"><img src="http://imgs.ali213.net/news/2019/04/12/20190412115806150.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420985.html">你这个COS就非常的有灵魂 囧图 来一个大佬的坐姿</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-12</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420887.html"><img src="http://imgs.ali213.net/news/2019/04/11/2019041171049935.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420887.html">今夜我不关心人类我只关心洞 轻松一刻4月11日晚间版</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-11</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420877.html"><img src="http://imgs.ali213.net/news/2019/04/11/2019041161436542.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420877.html">这次漂移坐轮椅下次上天用担架 动图 升级是早晚的</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-11</span></div>
+                                                            </div>
+                                                     </li><li class="zadmainholder zadmainholder-lable" zpro-data-type="55"><div id="_ne60xz7rdq" style=""><iframe width="375" frameborder="0" height="80" scrolling="no" src="http://pos.baidu.com/s?hei=80&amp;wid=375&amp;di=u3471409&amp;ltu=http%3A%2F%2F3g.ali213.net%2F&amp;psi=3c3e09361d6fe63b777378bbb8620511&amp;dtm=HTML_POST&amp;ti=%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E9%97%A8%E6%88%B7_%E6%B8%B8%E4%BE%A0%E7%BD%91_%E6%B8%B8%E4%BE%A0%E7%BD%91&amp;cmi=0&amp;exps=111000,110011&amp;ltr=https%3A%2F%2Fwww.google.com%2F&amp;drs=3&amp;cja=false&amp;ccd=24&amp;dai=4&amp;col=zh-CN&amp;cec=UTF-8&amp;pss=375x6784&amp;cfv=0&amp;cpl=0&amp;chi=3&amp;ari=2&amp;pcs=375x812&amp;dri=3&amp;tlm=1555051774&amp;ps=0x0&amp;cce=true&amp;pis=-1x-1&amp;dc=3&amp;psr=375x812&amp;par=375x812&amp;tcn=1555051774&amp;ant=0&amp;cdo=0&amp;tpr=1555051774276&amp;dis=0"></iframe></div><script type="text/javascript" src="//e.fengyx.com/gbtxckxhj.js"></script></li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420775.html"><img src="http://imgs.ali213.net/news/2019/04/11/20190411111041630.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420775.html">女朋说就喜欢这样荡秋千 囧图 小姐姐这是单身太久了</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-11</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420669.html"><img src="http://imgs.ali213.net/news/2019/04/10/2019041072742313.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420669.html">这是新型作弊方式吗？ 每日轻松一刻4月10日晚间版</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-10</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420653.html"><img src="http://imgs.ali213.net/news/2019/04/10/2019041061655743.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420653.html">男生骚起来哪有妹子什么事 动图 知道自己的优势很大</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-10</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420545.html"><img src="http://imgs.ali213.net/news/2019/04/10/2019041011282773.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420545.html">我被蛇精缠住了谁来救救我 囧图 你们四个一起上吧</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-10</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420395.html"><img src="http://imgs.ali213.net/news/2019/04/10/2019041011508427.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420395.html">满30度减15度活动进行时 每日轻松一刻4月9日晚间版</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-10</span></div>
+                                                            </div>
+                                                     </li><li class="zadmainholder zadmainholder-lable" zpro-data-type="56"><div id="_u3t60g32epb" style=""><iframe width="375" frameborder="0" height="80" scrolling="no" src="//pos.baidu.com/s?hei=80&amp;wid=375&amp;di=u3471409&amp;ltu=http%3A%2F%2F3g.ali213.net%2F&amp;psi=3c3e09361d6fe63b777378bbb8620511&amp;dri=4&amp;dai=5&amp;dc=3&amp;pcs=375x812&amp;cce=true&amp;ltr=https%3A%2F%2Fwww.google.com%2F&amp;ps=0x0&amp;cja=false&amp;ccd=24&amp;cec=UTF-8&amp;chi=3&amp;tlm=1555051774&amp;cdo=0&amp;tcn=1555051774&amp;col=zh-CN&amp;cpl=0&amp;cfv=0&amp;ari=2&amp;pss=375x6784&amp;pis=-1x-1&amp;exps=111000,110011&amp;dis=0&amp;tpr=1555051774276&amp;ti=%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E9%97%A8%E6%88%B7_%E6%B8%B8%E4%BE%A0%E7%BD%91_%E6%B8%B8%E4%BE%A0%E7%BD%91&amp;ant=0&amp;drs=3&amp;psr=375x812&amp;cmi=0&amp;dtm=HTML_POST&amp;par=375x812"></iframe></div><script type="text/javascript" src="//e.fengyx.com/gbtxckxhj.js"></script></li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420363.html"><img src="http://imgs.ali213.net/news/2019/04/09/2019040940058647.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420363.html">排水沟过弯都弱爆了！动图 让你坐车不系安全带！</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-09</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420299.html"><img src="http://imgs.ali213.net/news/2019/04/09/20190409112342596.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420299.html">小姐姐说一根黄瓜就够了 囧图 大师说了色即是空</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-09</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420195.html"><img src="http://imgs.ali213.net/news/2019/04/08/2019040893021228.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420195.html">蔡徐坤为啥子这么火凭啥 每日轻松一刻4月8日晚间版</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-08</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420165.html"><img src="http://imgs.ali213.net/news/2019/04/08/2019040850824195.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420165.html">小姐姐你腿怎么了？动图 听说女生在宿舍都很调皮？</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-08</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420065.html"><img src="http://imgs.ali213.net/news/2019/04/08/20190408111728421.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420065.html">妹子你量黄瓜的长度干啥啊 囧图 打黑要从娃娃打起</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-08</span></div>
+                                                            </div>
+                                                     </li><li class="zadmainholder zadmainholder-lable" zpro-data-type="57"><div id="_ji1vn9zpag" style=""><div id="nhnanezchv"><div id="ihqqguibrh" style="padding-top:0px;"><iframe width="375" frameborder="0" height="80" scrolling="no" src="http://pos.baidu.com/s?hei=80&amp;wid=375&amp;di=u3471409&amp;ltu=http%3A%2F%2F3g.ali213.net%2F&amp;psi=3c3e09361d6fe63b777378bbb8620511&amp;cja=false&amp;dai=6&amp;dis=0&amp;ltr=https%3A%2F%2Fwww.google.com%2F&amp;cdo=0&amp;cec=UTF-8&amp;exps=111000,110011&amp;cfv=0&amp;cpl=0&amp;col=zh-CN&amp;tlm=1555051774&amp;drs=3&amp;dri=5&amp;tcn=1555051774&amp;pss=375x6784&amp;psr=375x812&amp;par=375x812&amp;pcs=375x812&amp;ant=0&amp;cce=true&amp;ari=2&amp;ccd=24&amp;tpr=1555051774276&amp;pis=-1x-1&amp;chi=3&amp;dtm=HTML_POST&amp;cmi=0&amp;ps=0x0&amp;ti=%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E9%97%A8%E6%88%B7_%E6%B8%B8%E4%BE%A0%E7%BD%91_%E6%B8%B8%E4%BE%A0%E7%BD%91&amp;dc=3"></iframe></div></div></div><script type="text/javascript" src="//e.fengyx.com/gbtxckxhj.js"></script></li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/419981.html"><img src="http://imgs.ali213.net/news/2019/04/07/2019040771642490.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/419981.html">这个地方以后千万别挤！ 每日轻松一刻4月5日周末版</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-07</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/419961.html"><img src="http://imgs.ali213.net/news/2019/04/07/2019040750536995.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/419961.html">妹子有本事冲我来 动图 你能不能从我老公身上下来</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-07</span></div>
+                                                            </div>
+                                                     </li>                                     </ul>
+                                  <a class="newsindex_news_link" href="/vr/">点击查看更多</a>
+                        </div>
+                        <div class="newsindex_news_list" style="display: none;">
+                                  <ul>
+                                        <li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420889.html"><img src="http://imgs.ali213.net/news/2019/04/11/20190411113541348.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420889.html">《残机0：最后的开始》图文评测：跨越生死的轮回</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-11</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420365.html"><img src="http://imgs.ali213.net/news/2019/04/09/2019040940914875.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420365.html">《零世代》图文评测：千疮百孔开放世界</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-09</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/420153.html"><img src="http://imgs.ali213.net/news/2019/04/08/2019040845814691.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/420153.html">《雨中冒险2》图文评测：爽快而又欢乐的冒险旅途</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-08</span></div>
+                                                            </div>
+                                                     </li><li class="zadmainholder zadmainholder-lable" zpro-data-type="58"><div id="_5ww9movjsrb" style=""><em style="width:0px;height:0px;padding-bottom:0px;"></em><iframe width="375" frameborder="0" height="80" scrolling="no" src="http://pos.baidu.com/s?hei=80&amp;wid=375&amp;di=u3471409&amp;ltu=http%3A%2F%2F3g.ali213.net%2F&amp;psi=3c3e09361d6fe63b777378bbb8620511&amp;cec=UTF-8&amp;pcs=375x812&amp;cpl=0&amp;cdo=0&amp;dai=7&amp;dc=3&amp;drs=3&amp;ant=0&amp;tlm=1555051774&amp;cce=true&amp;ps=0x0&amp;col=zh-CN&amp;par=375x812&amp;dis=0&amp;pss=375x6784&amp;cja=false&amp;dri=6&amp;cfv=0&amp;ti=%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E9%97%A8%E6%88%B7_%E6%B8%B8%E4%BE%A0%E7%BD%91_%E6%B8%B8%E4%BE%A0%E7%BD%91&amp;dtm=HTML_POST&amp;pis=-1x-1&amp;ccd=24&amp;exps=111000,110011&amp;chi=3&amp;ari=2&amp;ltr=https%3A%2F%2Fwww.google.com%2F&amp;tcn=1555051774&amp;tpr=1555051774276&amp;psr=375x812&amp;cmi=0"></iframe></div><script type="text/javascript" src="//e.fengyx.com/gbtxckxhj.js"></script></li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/419519.html"><img src="http://imgs.ali213.net/news/2019/04/04/2019040430854553.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/419519.html">《海岛大亨6》图文评测：那个总统又回来了</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-04</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/419405.html"><img src="http://imgs.ali213.net/news/2019/04/04/2019040494124863.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/419405.html">《物质世界》图文评测：一趟艰辛的奇幻旅程</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>4-04</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/416989.html"><img src="http://imgs.ali213.net/news/2019/03/22/20190322114827739.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/416989.html">《只狼：影逝二度》图文评测：自成一脉的优异作品</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>3-22</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/416277.html"><img src="http://imgs.ali213.net/news/2019/03/19/2019031945248739.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/416277.html">《海贼王：世界探索者》图文评测：海贼王应不止如此</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>3-19</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/415141.html"><img src="http://imgs.ali213.net/news/2019/03/13/2019031380607900.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/415141.html">《全境封锁2》图文评测：品质更为成熟的系列续作</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>3-13</span></div>
+                                                            </div>
+                                                     </li><li class="zadmainholder zadmainholder-lable" zpro-data-type="59"><div style=""><div><div style="padding-bottom:0px;"><iframe width="375" frameborder="0" height="80" scrolling="no" src="http://pos.baidu.com/s?hei=80&amp;wid=375&amp;di=u3471409&amp;ltu=http%3A%2F%2F3g.ali213.net%2F&amp;psi=3c3e09361d6fe63b777378bbb8620511&amp;dis=0&amp;col=zh-CN&amp;tcn=1555051774&amp;drs=3&amp;chi=3&amp;dc=3&amp;ant=0&amp;pss=375x6784&amp;tlm=1555051774&amp;par=375x812&amp;tpr=1555051774276&amp;ccd=24&amp;ari=2&amp;pcs=375x812&amp;cfv=0&amp;dri=7&amp;cdo=0&amp;cec=UTF-8&amp;ti=%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E9%97%A8%E6%88%B7_%E6%B8%B8%E4%BE%A0%E7%BD%91_%E6%B8%B8%E4%BE%A0%E7%BD%91&amp;ltr=https%3A%2F%2Fwww.google.com%2F&amp;dtm=HTML_POST&amp;psr=375x812&amp;cmi=0&amp;dai=8&amp;cce=true&amp;exps=111000,110011&amp;pis=-1x-1&amp;ps=0x0&amp;cja=false&amp;cpl=0"></iframe></div></div></div><script type="text/javascript" src="//e.fengyx.com/gbtxckxhj.js"></script></li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/414699.html"><img src="http://imgs.ali213.net/news/2019/03/11/2019031151438807.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/414699.html">《人类黎明》图文评测：远古先民的夹缝求生</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>3-11</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/414547.html"><img src="http://imgs.ali213.net/news/2019/03/10/20190310100252553.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/414547.html">《生还者》图文评测：经费不足，难续经典</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>3-10</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/414411.html"><img src="http://imgs.ali213.net/news/2019/03/09/2019030963411507.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/414411.html">《鬼泣5》图文评测：本世代的动作游戏之光</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>3-09</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/413373.html"><img src="http://imgs.ali213.net/news/2019/03/04/2019030442648766.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/413373.html">《死或生6》图文评测：野心勃勃的系列新作</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>3-04</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/412385.html"><img src="http://imgs.ali213.net/news/2019/02/27/2019022722844694.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/412385.html">《圣歌》图文评测：奏响后启示录的乐章</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>2-27</span></div>
+                                                            </div>
+                                                     </li><li class="zadmainholder zadmainholder-lable" zpro-data-type="60"><div id="_dqfotd6phmd" style=""><ins style="width:0px;height:0px;padding:0px;"></ins><iframe width="375" frameborder="0" height="80" scrolling="no" src="http://pos.baidu.com/s?hei=80&amp;wid=375&amp;di=u3471409&amp;ltu=http%3A%2F%2F3g.ali213.net%2F&amp;psi=3c3e09361d6fe63b777378bbb8620511&amp;dtm=HTML_POST&amp;tlm=1555051774&amp;dri=8&amp;cce=true&amp;col=zh-CN&amp;pcs=375x812&amp;cfv=0&amp;dai=9&amp;cmi=0&amp;ari=2&amp;cdo=0&amp;ant=0&amp;ccd=24&amp;psr=375x812&amp;cpl=0&amp;dis=0&amp;pss=375x6784&amp;tpr=1555051774276&amp;pis=-1x-1&amp;dc=3&amp;par=375x812&amp;ltr=https%3A%2F%2Fwww.google.com%2F&amp;ti=%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E4%B8%8B%E8%BD%BD_%E5%8D%95%E6%9C%BA%E6%B8%B8%E6%88%8F%E9%97%A8%E6%88%B7_%E6%B8%B8%E4%BE%A0%E7%BD%91_%E6%B8%B8%E4%BE%A0%E7%BD%91&amp;cja=false&amp;chi=3&amp;cec=UTF-8&amp;tcn=1555051775&amp;drs=3&amp;exps=111000,118006,110011&amp;ps=0x0"></iframe></div><script type="text/javascript" src="//e.fengyx.com/gbtxckxhj.js"></script></li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/411863.html"><img src="http://imgs.ali213.net/news/2019/02/24/2019022450242398.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/411863.html">《尘埃拉力赛2.0》图文评测：站上世界级的舞台</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>2-24</span></div>
+                                                            </div>
+                                                     </li><li>
+                                                            <div class="newsindex_news_img"><a href="/news/html/411129.html"><img src="http://imgs.ali213.net/news/2019/02/20/201902205300032.jpg"></a></div>
+                                                            <div class="newsindex_news_info">
+                                                                     <div class="newsindex_news_title"><a href="/news/html/411129.html">《吞食孔明传》评测：游戏性十足!妙趣横生的三国之旅</a></div>
+                                                                     <div class="newsindex_news_des"><em class="iconindexfont"></em><span>2-20</span></div>
+                                                            </div>
+                                                     </li>                                     </ul>
+                                  <a class="newsindex_news_link" href="/in/">点击查看更多</a>
+                        </div>
+                </div>
+         </div>
+
+    <script>
+
+$.each($(".nav_top span"),function(i,v){
+
+     $(v).bind("click",function(){
+            $(".newsindex_news_list").hide();
+            $(".newsindex_news_list").eq(i).show();
+            $(".newsindex_news_tab span").removeClass("active");
+            $(".newsindex_news_tab span").eq(i).addClass("active");
+            $(".nav_top span").removeClass("active");
+            $(this).addClass("active");
+            $('body,html').animate({scrollTop:$("#news_c").offset().top-42},300);  
+            $(".nav_top").hide();
+     });
+
+});
+$(".newsindex_slide_top").bind("click",function(){
+    $('body,html').animate({scrollTop:0},300); 	
+});
+
+
+$.each($(".newsindex_news_tab span"),function(i,v){
+         $(v).bind("click",function(){
+                  
+                  $(".newsindex_news_list").hide();
+                  $(".newsindex_news_list").eq(i).show();
+                  $(".newsindex_news_tab span").removeClass("active");
+                  $(this).addClass("active");
+                  $(".nav_top span").removeClass("active");
+                  $(".nav_top span").eq(i).addClass("active");
+
+         });   
+});
+
+$.each($(".newsindex_ph_tab_con span"),function(i,v){
+         $(v).bind("click",function(){
+                  
+                  $(".newsindex_ph_con").hide();
+                  $(".newsindex_ph_con").eq(i).show();
+                  $(".newsindex_ph_tab_con span").removeClass("active");
+                  $(this).addClass("active");
+
+         });   
+});
+
+
+    </script>
+</body>
+</html>

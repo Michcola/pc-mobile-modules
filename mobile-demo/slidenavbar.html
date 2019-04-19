@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery-1.7.2.min.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+    /* 自定义样式  */ 
+.menu{padding: 5px;height: 40px;overflow: hidden;margin-bottom: 1px;background-color: #fff;}
+.menu a{margin-right: 20px;font-size: 14px;height: 100%;line-height: 38px;position: relative;display: block;color: #454545;}
+.menu .cur>a{color: #126be8;font-weight: bold;}
+.menu .cur>a:after{content: '';left: 0;right: 0;bottom: 0;height: 3px;background: #126be8;position: absolute;}
+.row {margin-right: -15px; margin-left: -5px;}
+.menu ul li {float: left;list-style: none;} 
+    </style>
+</head>
+<body>
+    <header style="height:40px;">
+    <div id="navbar" class="row menu"><ul style="width: 538px; transition-timing-function: cubic-bezier(0.1, 0.57, 0.1, 1); transition-duration: 0ms; transform: translate(-143px, 0px) scale(1) translateZ(0px);"><li><a href="/m/index.html" title="首页">首页</a></li><li><a href="/m/DailiInfo/list.shtml" title="招代理">做代理</a></li><li><a href="/m/ZhaomuInfo/list.shtml" title="招代理">招代理</a></li><li><a href="/m/GroupInfo/list.shtml" title="游戏群">游戏群</a></li><li><a href="/m/GameInfo/list.shtml" title="游戏">棋牌游戏</a></li><li><a href="/m/PlatInfo/index.shtml" title="游戏平台">游戏平台</a></li><li class="cur"><a href="/m/ActivityInfo/list.shtml" title="活动资讯">活动资讯</a></li><li><a href="/m/GongLue/list.shtml" title="攻略技巧">攻略技巧</a></li></ul></div>
+</header>
+
+<script src="js/hui.js"></script>
+<script src="js/iscroll-zoom.js"></script>
+    <script type="text/javascript"> 
+        /*导航栏滑动*/
+        try{var e=0,ele=$("#navbar>ul"),_li=ele.find("li");_li.each(function(){var t=$(this).outerWidth(!0);e+=t;});ele.width(e);var myScroll=new IScroll("#navbar",{scrollX:true,scrollY:false,mouseWheel:true,click:true,tap:true});_li.on("click",function(){$(this).addClass("cur").siblings().removeClass("cur");myScroll.scrollToElement(".cur",true,true);});myScroll.scrollToElement(".cur",true,true);}catch(e){};
+         
+        </script>
+</body>
+</html>

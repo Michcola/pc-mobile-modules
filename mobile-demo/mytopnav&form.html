@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+    
+    /* 导航条样式 */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+  font-size: 18px;
+}
+
+.topnav a {
+  color: white;
+  padding: 4px 8px;
+  text-decoration: none;
+  display: block;
+}
+
+.topnav a.icon {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: -14px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.topnav a:hover {
+  color: black;
+}
+
+.active {
+  color: white;
+}
+
+/* 表单样式 */       
+form.example input[type=text] {
+  padding: 3%;
+  font-size: 17px;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 14%;
+  padding: 3%;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: none;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* sanjiao */
+#ph i{
+            width: 10px;
+            height: 10px;
+            border-left: 2px solid #111;
+            border-bottom: 2px solid #111;
+            display: inline-block;
+            transform:rotate(-225deg);
+        }
+        i.ad{
+            transform:rotate(-45deg) !important;
+        }
+</style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+
+
+    <!-- Top Navigation Menu -->
+    <div class="topnav">
+        <a href="#home" class="active"> <img src="<?=$logo?>" alt="" srcset="" style="width:40%;"> </a>
+        <div id="myLinks">
+            <a href="<?=$domain?>/<?=$mpath?>/">首页</a>
+
+            <?php foreach ($nav_on as $k => $v){ ?>
+            <!--可编缉区域-->
+            <a href="/<?=$mpath?>/<?=$nav_url[$k]?>/">
+                <?=$nav_name[$k]?></a>
+            <!--可编缉区域End-->
+            <?php } ?>
+
+              <a id="ph">排行榜<i></i></a>
+              <ul class="phblist" id="myphb" style="list-style:none; display:none;"> 
+                  <li><a href="">热门</a></li>
+                  <li><a href="">推荐</a></li>
+                  <li><a href="">最新</a></li>
+              </ul>
+        
+            <form class="example" action="/wap/so.php" method="get">
+                <input type="text" placeholder="输入关键字" name="s">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myLinks");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+      
+                     i=true;
+                    $('#ph').click(function(){
+                        if(i==true){
+                            $('#myphb').slideToggle("fast")
+                            $("#ph i").addClass("ad")
+                            i=false
+                        }else{
+                            $('#myphb').fadeToggle("fast")
+                            $("#ph i").removeClass("ad")
+                            i=true
+                        }
+                    })
+
+        }
+    </script>
+
+
+</body>
+
+</html>

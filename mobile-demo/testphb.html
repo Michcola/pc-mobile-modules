@@ -1,0 +1,101 @@
+[!--temp.total--]
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .head{
+            height: 70px;
+            background-color: rgb(207, 198, 198)
+        }
+        .head span{
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            background-color: blueviolet;
+        }
+        .nac-box{
+            background-color: chocolate;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            line-height: 30px;
+            color: rgb(12, 29, 44);
+        }
+        li:hover{
+            background-color: chartreuse;
+            color: black;
+        }
+        .seek li{
+            background-color: blue;
+            text-indent: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 640px;margin: 0 auto;">
+        <div class="head-box">
+            <div class="head">
+                <span></span>
+            </div>
+            <div class="nac-box" style="display: none;">
+                <nav>
+                    <ul>
+                        <li>
+                            <a>首页</a>
+                        </li>
+                        
+                        <?php foreach ($nav_on as $k => $v){ ?>
+                        <!--可编缉区域-->
+                        <li>
+                            <a href="/<?=$mpath?>/<?=$mpath?>/<?=$nav_url[$k]?>/"><?=$nav_name[$k]?></a>
+                        </li>
+                        <!--可编缉区域End-->
+                        <?php } ?>
+
+
+                        <li id="ph">
+                            <a>排行</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="seek" style="display: none;">
+                    <ul>
+                        <?php foreach ($ran_url as $k => $v){ ?>
+                        <!--可编缉区域-->
+                            <li>
+                                 <a href="/<?=$mpath?>/<?=$ran_url[$k]?>/"><?=$ran_name[$k]?></a>
+                            </li>
+                        <!--可编缉区域End-->
+                        <?php } ?>
+                    </ul>
+                </div>
+                <script>
+                    $('.head span').click(function(){
+                        $('.nac-box').fadeToggle()
+                    })
+                     $('#ph').click(function(){
+                        $('.seek').fadeToggle()
+                    })
+                </script>
+            </div>
+        </div>
+        <!-- 内容 -->
+        <div style="height: 400px;background-color: brown;">
+                1
+        </div>
+        
+    </div>
+</body>
+</html>

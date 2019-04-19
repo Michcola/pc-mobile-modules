@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    /* articlelist */
+.articlelist > .title{
+    height: 80px;
+    line-height: 80px;
+    border-bottom: 1px solid #e7e7e7;
+}
+.articlelist > .title > h2{
+    font-size: 24px;
+    float: left;
+    text-indent: 50px;
+}
+.articlelist .newsbox{
+    padding: 0px 0 0 0px;
+}
+.articlelist .newsbox ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    word-break: break-all;
+}
+li.con{
+    border-bottom: 1px #e9e9e9 solid;
+    clear: both;
+    padding: 20px 0 20px 0;
+    overflow: hidden;
+    box-shadow: 0 1px 0 #fff;
+    list-style: none;
+}
+li.con a.pic{
+    float: left;
+    display: block;
+    width: 250px;
+    height: 160px;
+    margin-right: 20px;
+    overflow: hidden;
+}
+li.con img{
+    display: inline-block;
+    vertical-align: middle;
+    width: 250px;
+    height: 160px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+li.con .artpost{
+    padding: 1px 1px 1px 1px ;
+}
+div.artpost h4{
+    padding:  0 0 18px;
+    font-size: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: normal;
+}
+div.artpost a{
+   text-decoration: none;
+}
+div.artpost .text{
+    height: 72px;
+    line-height: 24px;
+    color: #888;
+    margin: 0 0 18px;
+    word-wrap: break-word;
+    word-break: normal;
+    overflow: hidden;
+}
+div.artpost .attr{
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+div.artpost .attr span{
+    color: #888;
+    font-size: 12px;
+    padding-right: 10px;
+}
+
+</style>
+<body>
+
+            <!-- articlelist -->
+            <div class="articlelist">
+                    <div class="title">
+                        <h2>热门资讯</h2>
+            <!-- myphbmini -->
+            <div class="miniphb">
+                    <ul class="phbul">
+                            <?php foreach ($ran_url as $k => $v){ ?>
+                                <!--可编缉区域-->
+                                <li class="phbli">
+                                        <a href="/<?=$ran_url[$k]?>/"><?=$ran_name[$k]?></a>
+                                    </li>
+                                <!--可编缉区域End-->
+                                <?php } ?>
+                                
+                       
+                    </ul>
+                </div>
+        
+                        <span><a href="#"></a></span>
+                    </div>
+                    <div class="newsbox">
+                        <ul class="articlebox">
+        
+        
+                                [e:loop={"select id,title,smalltext,newstime,lid,titlepic from [!db.pre!]ecms_article where did=$did and titlepic!='' order by id desc limit 10",0,24,0}]
+                                <!--可编缉区域-->
+                                <li class="con">
+                                        <a class="pic" href="/<?=$ipath?>/<?=$bqr['id']?>.html">
+                                            <img src="<?=$bqr['titlepic']?>">
+                                        </a>
+                                        <div class="artpost">
+                                            <h4><a href="/<?=$ipath?>/<?=$bqr['id']?>.html"><?=$bqr['title']?></a></h4>
+                                            <p class="text"><?=$bqr['smalltext']?>...</p>
+                                            <p class="attr"><span><?=date("Y-m-d",$bqr['newstime'])?></span><span>[<a href="/<?=zq_class($bqr['lid'])[lpath]?>/"><?=zq_class($bqr['lid'])[lname]?></a>]</span></p>
+                                        </div>
+                                    </li>
+                                <!--可编缉区域End-->
+                                [/e:loop]
+                                
+                            
+        
+                        </ul>
+                    </div>
+            </div>
+            <!-- list end -->
+    
+</body>
+</html>

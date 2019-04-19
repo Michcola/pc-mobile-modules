@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="./js/jquery-1.7.2.min.js"></script>
+    <style>
+
+#navbar {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.menubtn {
+	position: relative;
+	z-index: 101;
+	color: #274a61;
+	text-decoration: none;
+	font-size: 30px !important;
+}
+
+.menubtn:hover,
+.openmenu .menubtn {
+	color: #bdd43e;
+}
+
+.logo{
+	width: 180px;
+	margin: 0 auto;
+}
+
+.wapname{
+	position: absolute;
+	text-align: center;
+	left: 45%;
+	padding-top: 5px;
+}
+
+/** toggle menu **/
+body.openmenu {
+	position: fixed;
+	overflow: hidden;
+}
+
+#pgcontainer {
+	margin: 0;
+}
+
+.overlay {
+	position: fixed;
+	z-index: 99;
+	background-color: rgba(0, 0, 0, 0.5);
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.openmenu .overlay {
+	top: 0;
+}
+
+
+#hamburgermenu {
+	height: 100%;
+	width: 0;
+	background: #373737;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 101;
+	overflow: hidden;
+	-webkit-box-shadow: 3px 0 7px rgba(0, 0, 0, 0.55);
+	-moz-box-shadow: 3px 0 7px rgba(0, 0, 0, 0.55);
+	box-shadow: 3px 0 7px rgba(0, 0, 0, 0.55);
+}
+
+#hamburgermenu ul {
+	margin-top: 10px;
+	z-index: 101;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#hamburgermenu ul li {
+	display: block;
+}
+
+#hamburgermenu ul li a {
+	display: block;
+	min-width: 130px;
+	padding: 10px 8px;
+	color: #cdcdcd;
+	font-size: 1em;
+	font-weight: bold;
+	text-decoration: none;
+	text-align: center;
+}
+
+#hamburgermenu li a:hover {
+	color: #fff;
+	background: #2c2c2c;
+}
+
+/* 向上图标变为向下 */
+.guodu {
+	transform: rotate(180deg);
+	transition: all 0.5s;
+}
+
+/* 搜索框 */
+#hamburgermenu .sousuola {
+	position: relative;
+	margin: 10px;
+}
+
+#hamburgermenu .sousuola form input {
+	left: 0;
+	height: 1.5em;
+	width: 80%;
+	color: #333;
+	font-size: 1em;
+	text-decoration: none;
+}
+
+#hamburgermenu .sousuola form button {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	color: #fff;
+	width: 40px;
+	height: 1.5em;
+	font-size: 1em;
+	text-decoration: none;
+	background: orangered;
+	border: none;
+}
+
+
+    </style>
+</head>
+<body>
+        <div id="pgcontainer" style="margin-right: 0px; margin-left: 0px;">
+                <header>
+                    <div id="navbar">
+                        <a href="javascript:;" class="menubtn fa fa-bars"></a><span class="wapname">综合</span>
+                        <div id="hamburgermenu" style="overflow: hidden; width: 0px;">
+                            <ul>
+                                <li class="logo"><img src="/d/file/p/2019/03-12/1bda72dbc053cd0612b81fbce0c2a688.jpg"></li>	
+                                <li><a href="http://www.03qp.com/wap/">首页</a></li>	
+                                                            <!--可编缉区域-->
+                                <li><a href="/wap/gl2/">
+                                            攻略</a></li>
+                                <!--可编缉区域End-->
+                                                            <!--可编缉区域-->
+                                <li><a href="/wap/xw/">
+                                            新闻</a></li>
+                                <!--可编缉区域End-->
+                                                            <!--可编缉区域-->
+                                <li><a href="/wap/pc/">
+                                            评测</a></li>
+                                <!--可编缉区域End-->
+                                                            <!--可编缉区域-->
+                                <li><a href="/wap/sp/">
+                                            视频</a></li>
+                                <!--可编缉区域End-->
+                                                            <!--可编缉区域-->
+                                <li><a href="/wap/bg/">
+                                            八卦</a></li>
+                                <!--可编缉区域End-->
+                                                            <!--可编缉区域-->
+                                <li><a href="/wap/zh/">
+                                            综合</a></li>
+                                <!--可编缉区域End-->
+                                                            <li class="dropdown"><a href="#">排行榜&nbsp;&nbsp;<span id="guodu" class="fa fa-angle-up"></span></a>
+                                    <ul style="overflow: hidden; display: none;">
+                                        <li><a href="/wap/new/">
+                                                最新发布</a></li>
+                                        <li><a href="/wap/top/">
+                                                精彩推荐</a></li>
+                                        <li><a href="/wap/hot/">
+                                                热门排行</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <div class="sousuola">
+                                        <form action="/wap/so.php" method="get">
+                                            <input type="text" name="s" id="search" placeholder="请输入内容">
+                                            <button type="submit">提交</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="overlay" style="left: 0px;"></div>
+                </header>
+                
+            </div>
+            <script type="text/javascript">
+                $("#back-top").click(function() {
+                    if ($('html').scrollTop()) {
+                        $('html').animate({
+                            scrollTop: 0
+                        }, 1000); //动画效果
+                        return false;
+                    }
+                    $('body').animate({
+                        scrollTop: 0
+                    }, 1000);
+                    return false;
+                });
+            </script>
+            <script type="text/javascript">
+                $(".dropdown").click(function() {
+                    if ($(this).children("ul").css("display") == "block") {
+                        $(this).children("ul").slideUp(300);
+                    } else {
+                        $(this).children("ul").slideDown(300);
+                    }
+                });
+            </script>
+            <script type="text/javascript">
+                var i = true;
+                $('.dropdown').click(function() {
+                    if (!i) {
+                        $('#guodu').removeClass('guodu')
+                        i = true
+                    } else {
+                        $('#guodu').addClass('guodu')
+                        i = false
+                    }
+                });
+            </script>
+            <script>
+            $(function () {
+    var menuwidth = 240; // 边栏宽度
+    var menuspeed = 400; // 边栏滑出耗费时间
+
+    var $bdy = $('body');
+    var $container = $('#pgcontainer');
+    var $burger = $('#hamburgermenu');
+    var negwidth = "-" + menuwidth + "px";
+    var poswidth = menuwidth + "px";
+
+    $('.menubtn').on('click', function (e) {
+        if ($bdy.hasClass('openmenu')) {
+            jsAnimateMenu('close');
+        } else {
+            jsAnimateMenu('open');
+        }
+    });
+
+    $('.overlay').on('click', function (e) {
+        if ($bdy.hasClass('openmenu')) {
+            jsAnimateMenu('close');
+        }
+    });
+
+    function jsAnimateMenu(tog) {
+        if (tog == 'open') {
+            $bdy.addClass('openmenu');
+
+            $container.animate({
+                marginRight: negwidth,
+                marginLeft: poswidth
+            }, menuspeed);
+            $burger.animate({
+                width: poswidth
+            }, menuspeed);
+            $('.overlay').animate({
+                left: poswidth
+            }, menuspeed);
+        }
+
+        if (tog == 'close') {
+            $bdy.removeClass('openmenu');
+
+            $container.animate({
+                marginRight: "0",
+                marginLeft: "0"
+            }, menuspeed);
+            $burger.animate({
+                width: "0"
+            }, menuspeed);
+            $('.overlay').animate({
+                left: "0"
+            }, menuspeed);
+        }
+    }
+});
+            </script>
+</body>
+</html>

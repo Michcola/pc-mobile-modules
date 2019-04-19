@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /*
+ @m 友情链接
+*/
+.cn-friendlink li {
+    float: left;
+    margin-right: 10px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: nowrap;
+    /*height:24px;*/
+
+}
+.cn-friendlink li a{
+    display: block;
+    color:#999;
+    padding:3px 5px;
+    line-height: 20px;
+}
+.cn-friendlink{
+    padding:5px;
+}
+
+/*
+ * cn-widget(友情链接块)
+ */
+ .cn-widget{
+	background: #fff;
+	/*border-top: 1px solid #dedede;*/
+	/*border-bottom: 1px solid #dedede;*/
+	margin-top: 2px;
+    background-color: #F2D788; color: #969ca5;font-size: 12px; 
+}
+
+.cn-widget .w-hd{
+	border-bottom: 1px solid #eee;
+	height: 22px;
+	overflow: hidden;
+	padding: 10px;
+}
+
+.cn-widget .w-hd .heading{
+	height: 23px;
+	line-height: 24px;
+	float: left;
+	color: #333;
+	font-weight: normal;
+	font-size: 16px;
+	overflow: hidden;
+}
+
+.cn-widget .w-hd .heading a{
+	color: #333;
+}
+
+.cn-widget .w-hd .action{
+	height: 12px;
+	float: right;
+	margin-top: 5px;
+	line-height: 1em;
+}
+
+.cn-widget .w-hd .action a{
+	color: #333;
+	font-size: 12px;
+	float: right;
+	margin-left: 15px;
+}
+
+.cn-widget.ctl-loading,
+.cn-widget .ctl-loading{
+	background: url(../images/loading.gif) center center no-repeat #fff;
+	-webkit-background-size: 32px 32px;
+	min-height: 100px;
+}
+
+.cn-widget .w-ft{
+	border-top: 1px solid #ececec;
+}
+
+.cn-widget .w-ft .more{
+	background: #f9f9f9;
+	display: block;
+	text-align: center;
+	font-size: 16px;
+	line-height: 1em;
+	padding: 13px;
+	color: #333;
+}
+
+.cn-widget .w-ft .more i{
+	margin-top: 2px;
+}
+
+.cn-section{
+    margin-top:2px;
+}
+    
+
+
+/* 页脚 */
+.copyright {
+  font-size: 12px;
+  text-align: center;
+  color: #969ca5;
+  background-color: #0b0b0b;
+  padding-top: 2px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  /* position: relative */
+  text-decoration: none;
+  list-style: none;
+}
+
+.copyright p {
+  margin-top: 10px
+}
+
+.public-footer-btn{
+    position: relative;
+    margin-top: 10px;
+    text-align: center;
+    color: gray;
+}
+
+.public-footer-btn-text{
+    border-top: 1px solid #4b4b54;
+    position: relative;
+    margin-top: 20px;
+    padding: 10px 4px 0 4px;
+}
+
+.public-child-title{
+    font-size: 0px;
+    position: relative;
+    height: 45px;
+    
+    display: block;
+    overflow: hidden;
+    background:#e7e7e7;
+}
+
+.public-child-title .return{
+    position: absolute;
+    text-align: center;
+    margin: 10px 0 0 0;
+    height: 26px;
+    width: 50px;
+    vertical-align: top;
+    line-height: 200%;
+    background: url(../images/back.png) 5px 10px no-repeat;
+    background-size:10px;
+    font-size: 0.2rem;
+    padding: 0 0 0 5px;
+    color: #444444;
+}
+
+    </style>
+</head>
+<body>
+    
+
+
+    <!-- 友情链接 -->
+    <section class="cn-widget" >
+            <header class="w-hd">
+                <h2 class="heading">友情链接</h2>
+            </header>
+            <section class="w-bd">
+                <nav class="clearfix cn-friendlink">
+                    <ul>
+                        <?php foreach($link_name as $k => $v){ ?>
+                        <li><a href="<?=$link_href[$k]?>" target="_blank">
+                                <?=$link_name[$k]?></a></li>
+                        <?php } ?>
+
+
+                    </ul>
+                </nav>
+            </section>
+        </section>
+
+        <!-- 页脚 -->
+        <div class="copyright">
+
+                <div class="public-footer-btn">
+                    <a href="<?=$domain?>/<?=$mpath?>/" class="mobile" style="margin-right:10px; color: grey;">移动版</a>
+                    <a href="<?=$domain?>" class="pc" style="margin-left:10px; color: grey;">电脑版</a>
+                </div>
+                <div class="pub-footer-btn">
+                    <a href="/sitemap.xml" class="sitemap" style="float: right;  color: grey;" >网站地图</a>
+                </div>
+    
+    
+                <p>版权所有：
+                    <?=$zqname?>
+                </p>
+                <p>
+                    <?=$domain?>
+                </p>
+                <p>Copyright &copy;2010 - 2019
+                    <?=$zqname?> All Rights Reserved</p>
+            </div>
+</body>
+</html>
