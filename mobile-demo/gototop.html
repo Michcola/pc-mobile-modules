@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <style>
+        .goTop {
+            height: 35px;
+            width: 45px;
+            background: red;
+            position: fixed;
+            top: 90%;
+            right: 0;
+            display: none;
+            z-index: 9999;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+
+        .goTop span {
+            color: #fff;
+            position: absolute;
+            padding: 10px 10px 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height:6666px;background:grey;"></div>
+    <div class="goTop" style="display: none;">
+        <span>顶部</span>
+    </div>
+
+
+
+
+    <script type="text/javascript">
+        function goTop(min_height) {
+            $(".goTop").click(
+                function () {
+                    $('html,body').animate({
+                        scrollTop: 0
+                    }, 1000);
+                });
+            min_height = min_height ? min_height : 200;
+            $(window).scroll(function () {
+                var s = $(window).scrollTop();
+                if (s > min_height) {
+                    $(".goTop").fadeIn(100);
+                } else {
+                    $(".goTop").fadeOut(200);
+                }
+            });
+        }
+
+        $(function () {
+            goTop();
+        });
+    </script>
+</body>
+
+</html>

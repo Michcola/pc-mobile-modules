@@ -9,6 +9,7 @@
     <script src="./js/jquery-1.7.2.min.js"></script>
     <style>
 
+/* nav */
 #navbar {
 	max-width: 1000px;
 	margin: 0 auto;
@@ -198,99 +199,75 @@ body.openmenu {
                     <div class="overlay" style="left: 0px;"></div>
                 </header>
                 
-            </div>
-            <script type="text/javascript">
-                $("#back-top").click(function() {
-                    if ($('html').scrollTop()) {
-                        $('html').animate({
-                            scrollTop: 0
-                        }, 1000); //动画效果
-                        return false;
-                    }
-                    $('body').animate({
-                        scrollTop: 0
-                    }, 1000);
-                    return false;
-                });
-            </script>
-            <script type="text/javascript">
-                $(".dropdown").click(function() {
-                    if ($(this).children("ul").css("display") == "block") {
-                        $(this).children("ul").slideUp(300);
-                    } else {
-                        $(this).children("ul").slideDown(300);
-                    }
-                });
-            </script>
-            <script type="text/javascript">
-                var i = true;
-                $('.dropdown').click(function() {
-                    if (!i) {
-                        $('#guodu').removeClass('guodu')
-                        i = true
-                    } else {
-                        $('#guodu').addClass('guodu')
-                        i = false
-                    }
-                });
-            </script>
-            <script>
-            $(function () {
-    var menuwidth = 240; // 边栏宽度
-    var menuspeed = 400; // 边栏滑出耗费时间
+        </div>
 
-    var $bdy = $('body');
-    var $container = $('#pgcontainer');
-    var $burger = $('#hamburgermenu');
-    var negwidth = "-" + menuwidth + "px";
-    var poswidth = menuwidth + "px";
 
-    $('.menubtn').on('click', function (e) {
-        if ($bdy.hasClass('openmenu')) {
-            jsAnimateMenu('close');
-        } else {
-            jsAnimateMenu('open');
-        }
-    });
-
-    $('.overlay').on('click', function (e) {
-        if ($bdy.hasClass('openmenu')) {
-            jsAnimateMenu('close');
-        }
-    });
-
-    function jsAnimateMenu(tog) {
-        if (tog == 'open') {
-            $bdy.addClass('openmenu');
-
-            $container.animate({
-                marginRight: negwidth,
-                marginLeft: poswidth
-            }, menuspeed);
-            $burger.animate({
-                width: poswidth
-            }, menuspeed);
-            $('.overlay').animate({
-                left: poswidth
-            }, menuspeed);
-        }
-
-        if (tog == 'close') {
-            $bdy.removeClass('openmenu');
-
-            $container.animate({
-                marginRight: "0",
-                marginLeft: "0"
-            }, menuspeed);
-            $burger.animate({
-                width: "0"
-            }, menuspeed);
-            $('.overlay').animate({
-                left: "0"
-            }, menuspeed);
-        }
+        
+      <script>
+            $(function(){
+  var menuwidth  = 240; // 边栏宽度
+  var menuspeed  = 400; // 边栏滑出耗费时间
+  
+  var $bdy       = $('body');
+  var $container = $('#pgcontainer');
+  var $burger    = $('#hamburgermenu');
+  var negwidth   = "-"+menuwidth+"px";
+  var poswidth   = menuwidth+"px";
+  
+  $('.menubtn').on('click',function(e){
+    if($bdy.hasClass('openmenu')) {
+      jsAnimateMenu('close');
+    } else {
+      jsAnimateMenu('open');
     }
+  });
+  
+  $('.overlay').on('click', function(e){
+    if($bdy.hasClass('openmenu')) {
+      jsAnimateMenu('close');
+    }
+  });
+  
+  function jsAnimateMenu(tog) {
+    if(tog == 'open') {
+      $bdy.addClass('openmenu');
+      
+      $container.animate({marginRight: negwidth, marginLeft: poswidth}, menuspeed);
+      $burger.animate({width: poswidth}, menuspeed);
+      $('.overlay').animate({left: poswidth}, menuspeed);
+    }
+    
+    if(tog == 'close') {
+      $bdy.removeClass('openmenu');
+      
+      $container.animate({marginRight: "0", marginLeft: "0"}, menuspeed);
+      $burger.animate({width: "0"}, menuspeed);
+      $('.overlay').animate({left: "0"}, menuspeed);
+    }
+  }
 });
-            </script>
+
+// nav phb
+$(".dropdown").click(function() {
+				if ($(this).children("ul").css("display") == "block") {
+					$(this).children("ul").slideUp(300);
+				} else {
+					$(this).children("ul").slideDown(300);
+				}
+      });
+      var i = true;
+			$('.dropdown').click(function() {
+				if (!i) {
+					$('#guodu').removeClass('guodu')
+					i = true
+				} else {
+					$('#guodu').addClass('guodu')
+					i = false
+				}
+  });
+      
+		</script>
+
+
 </body>
 </html>

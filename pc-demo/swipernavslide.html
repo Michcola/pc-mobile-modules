@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+    /*头部可滑动*/
+.tj-header {
+	padding: 0;
+	margin: 0;
+	background: #fff;
+	height: 40px;
+}
+
+.tj-header .swiper-slide {
+	overflow: hidden;
+	background: #333;
+	width: auto;
+	display: inline-block;
+}
+
+.tj-header .swiper-slide a {
+	display: block;
+	padding: 0 20px;
+	position: relative;
+	font-size: 14px;
+	color: #fff;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.tj-header .swiper-slide a.hover {color: #ff9600;}
+.tj-header .swiper-slide a.hover:after {    content: ""; width: 100%; height: 3px; display: block; background: #ff9600; position: absolute; bottom: 0; left: 0;}
+
+
+.tj-header .active a {
+	color: #2b7bde;
+}
+    </style>
+</head>
+<body>
+        <!-- swiper nav slider -->
+        <div class="swiper-container tj-header swiper-container-horizontal swiper-container-android">
+                <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+                    <div class="swiper-slide swiper-slide-active"><a href="http://www.qp201314.com/wap/" class="on">首页</a></div>
+                                    <!--可编缉区域-->
+                    <div class="swiper-slide swiper-slide-next">
+                        <a href="/wap/gonglueguize/">攻略规则					</a></div>
+                    <!--可编缉区域End-->
+                                    <!--可编缉区域-->
+                    <div class="swiper-slide">
+                        <a href="/wap/xinwenzixun/">新闻资讯					</a></div>
+                    <!--可编缉区域End-->
+                                    <!--可编缉区域-->
+                    <div class="swiper-slide">
+                        <a href="/wap/youxipingce/">游戏评测					</a></div>
+                    <!--可编缉区域End-->
+                                    <!--可编缉区域-->
+                    <div class="swiper-slide">
+                        <a href="/wap/youxishipin/">游戏视频					</a></div>
+                    <!--可编缉区域End-->
+                                    <!--可编缉区域-->
+                    <div class="swiper-slide">
+                        <a href="/wap/zatanbagua/">杂谈八卦					</a></div>
+                    <!--可编缉区域End-->
+                                    <!--可编缉区域-->
+                    <div class="swiper-slide">
+                        <a href="/wap/zongheqita/">综合其它					</a></div>
+                    <!--可编缉区域End-->
+                                                    <div class="swiper-slide"><a href="/wap/new/">
+                            最新发布</a></div>
+                    <div class="swiper-slide"><a href="/wap/top/">
+                            精彩推荐</a></div>
+                    <div class="swiper-slide"><a href="/wap/hot/">
+                            热门排行</a></div>
+                </div>
+        </div>
+
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/swiper.jquery.min.js"></script>
+<script>
+
+
+        (function(){
+            soft = {
+                m_nav : function(){
+                    var swiper = new Swiper('.tj-header', {
+                        slidesPerView: "auto",
+                        pagination: {
+                          el: '.swiper-pagination',
+                          clickable: true,
+                        },
+                    });
+                    $(".tj-header .swiper-slide").click(function(){
+                        $(this).addClass('active').siblings().removeClass('active');
+                    })
+                },
+
+    
+                invoke : function(){
+                    this.m_nav();
+                }
+            }
+            soft.invoke();
+        })();
+        
+        //console.log('global_latest.js');
+        
+        
+            </script>
+</body>
+</html>

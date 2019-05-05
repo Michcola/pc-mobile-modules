@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #8d91ac;
+        }
+        .ff{
+            border: 1px solid red;
+            width:100vh;
+            height: 300vh;
+        }
+
+
+
+        .guid_item{background:#fff;width:60px;right:0;bottom:80px;position:fixed;z-index:199;box-shadow:0 1px 2px 0 rgba(63,67,89,.1)}
+.guid_item ul li.active {
+	background-color: #2196F3;
+	background-image: linear-gradient(-90deg,#2196F3,#2196F3)
+}
+
+.guid_item ul li{padding:14px;border-bottom-color:#f1f4f7;border-bottom-width:1px;border-bottom-style:solid;cursor:pointer;box-sizing:border-box;}
+.guid_item ul li.app.active .icon{background:url(../images/app-hover.png)}
+.guid_item ul li.totop.active .icon{background:url(../images/top-hover.png)}
+.guid_item ul li .icon{width:32px;height:32px}
+.guid_item ul li.totop{display:none}
+.guid_item ul li.totop .icon{background:url(../images/top-right.png)}
+.guid_item ul li .show{display:none;cursor:default;transition:opacity .2s linear}
+.guid_item ul li .show .show-app{top:0;right:60px;position:absolute}
+.guid_item ul li .show .close{top:5px;width:25px;height:25px;right:65px;position:absolute;cursor:pointer}
+.guid_item ul li .show .close img{margin-left:7px}
+    </style>
+</head>
+
+<body>
+
+    <div class="ff"></div>
+
+
+
+
+    <div class="guid_item">
+        <ul>
+
+            <li class="totop">
+                <div class="icon"></div>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script>
+    $(function () {
+    $('.totop').click(function () {
+      $(window).scrollTop(0);
+    });
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 20) {
+        $(".totop").fadeIn(500);
+        $("#top_nav").addClass("b-line");
+      } else {
+        $("#top_nav").removeClass("b-line");
+        $(".totop").fadeOut(500);
+      }
+    });
+  });
+
+    </script>
+</body>
+
+</html>
